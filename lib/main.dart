@@ -3,14 +3,16 @@ import 'package:get/get.dart';
 import 'package:pursa/screens/splash/splash_bitcoin_screen.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
-void main() {
+import 'helpers/init_controllers.dart';
+
+void main()  {
+  
   //this is related to the splash screen we preserve it till the whole app
   //is setup
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -20,7 +22,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // whenever your initialization is completed, remove the splash screen:
     FlutterNativeSplash.remove();
-    return const  GetMaterialApp(
+    return  GetMaterialApp(
+      initialBinding: InitializeDepedencies(),
       debugShowCheckedModeBanner: false,
       home: SplashBitcoinScreen(),
     );

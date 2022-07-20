@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
+import '../authentification/select_country/select_country_page.dart';
+
 class SplashBitcoinScreen extends StatefulWidget {
   const SplashBitcoinScreen({Key? key}) : super(key: key);
 
@@ -10,28 +12,28 @@ class SplashBitcoinScreen extends StatefulWidget {
 }
 
 class _SplashBitcoinScreenState extends State<SplashBitcoinScreen> {
-  //  @override
-  // void initState() {
-  //   super.initState();
-  //   Future.delayed(
-  //     const Duration(seconds: 3),
-  //     () {
-  //       Get.offAll(() => const SplashBitcoinScreen());
-  //     },
-  //   );
-  // }
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(
+      const Duration(seconds: 4),
+      () {
+        Get.offAll(() => const SelectCountry());
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff02210B),
-      body: Center(
-        child: SizedBox(
-              height: 170.0,
-              width: 170.0,
-              child: Lottie.asset('assets/animations/bitcoin.json',
-                  fit: BoxFit.fill),
-            ),
-      )
-    );
+        backgroundColor: const Color(0xff02210B),
+        body: Center(
+          child: SizedBox(
+            height: 170.0,
+            width: 170.0,
+            child: Lottie.asset('assets/animations/bitcoin.json',
+                fit: BoxFit.fill),
+          ),
+        ));
   }
 }
