@@ -12,6 +12,7 @@ class SplashBitcoinScreen extends StatefulWidget {
 }
 
 class _SplashBitcoinScreenState extends State<SplashBitcoinScreen> {
+  
   @override
   void initState() {
     super.initState();
@@ -21,7 +22,8 @@ class _SplashBitcoinScreenState extends State<SplashBitcoinScreen> {
         Get.offAll(() => const SelectCountry());
       },
     );
-  }
+ }
+ 
 
   @override
   Widget build(BuildContext context) {
