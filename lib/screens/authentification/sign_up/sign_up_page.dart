@@ -135,7 +135,7 @@ class SignUp extends StatelessWidget {
                               onPressed: () {
                                 //an  action should be done here before we move foward
 
-                                Get.offAll(() => const SignUp());
+                                
                               }),
                         ),
                         const SizedBox(
@@ -146,7 +146,7 @@ class SignUp extends StatelessWidget {
                           children: [
                             TextButton(
                               onPressed: () {
-                                Get.offAll(() => const SelectCountry());
+                                Get.to(() => const SelectCountry());
                               },
                               child: Text(
                                 "Back",

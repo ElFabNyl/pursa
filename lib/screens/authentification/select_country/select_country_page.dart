@@ -149,7 +149,7 @@ class _SelectCountryState extends State<SelectCountry> {
                       onPressed: () {
                         //an  action should be done here before we move foward
 
-                        Get.offAll(() => const SignUp());
+                        Get.to(() => const SignUp());
                       }),
                 )
               ],
