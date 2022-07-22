@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:pursa/screens/authentification/login/login_page.dart';
 
 import '../authentification/select_country/select_country_page.dart';
 
@@ -19,7 +20,7 @@ class _SplashBitcoinScreenState extends State<SplashBitcoinScreen> {
     Future.delayed(
       const Duration(seconds: 4),
       () {
-        Get.offAll(() => const SelectCountry());
+        Get.offAll(() => const Login());
       },
     );
  }

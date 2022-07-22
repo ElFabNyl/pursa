@@ -145,7 +145,7 @@ class _SelectCountryState extends State<SelectCountry> {
                           style: TextStyle(color: Colors.white)),
                       showArrowBack: false,
                       showArrowFoward: false,
-                      backgroundColor: Color(0xff02210B),
+                      backgroundColor: Color(0xff218354),
                       onPressed: () {
                         //an  action should be done here before we move foward
 

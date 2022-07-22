@@ -2,19 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pursa/composants/elevated_button.dart';
 import 'package:pursa/composants/text_field.dart';
+import 'package:pursa/screens/authentification/inbox_check_message/inbox_check_message_page.dart';
 import 'package:pursa/screens/authentification/select_country/select_country_page.dart';
+import 'package:pursa/screens/authentification/sign_up/sign_up_ctrl.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    SignUpController controller = Get.find();
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 60.0, horizontal: 10),
+            padding: const EdgeInsets.symmetric(vertical: 60.0, horizontal: 6),
             child: Column(
               children: [
                 Row(
@@ -52,20 +55,22 @@ class SignUp extends StatelessWidget {
                         const SizedBox(
                           height: 10.0,
                         ),
-                        InputFormFieldWidget(
-                          isnumberInput: false,
-                          isEmailInput: false,
-                          obscureText: true,
-                          hintText: "Create password",
-                          suffixIcon: IconButton(
-                              onPressed: () {
-                                //
-                              },
-                              icon: Icon(
-                                Icons.remove_red_eye,
-                                color: Colors.grey,
-                              )),
-                        ),
+                        Obx(() => InputFormFieldWidget(
+                              isnumberInput: false,
+                              isEmailInput: false,
+                              obscureText: controller.viewPassword.value,
+                              hintText: "Create password",
+                              suffixIcon: IconButton(
+                                  onPressed: () {
+                                    //
+                                    controller.viewPassword.value =
+                                        !controller.viewPassword.value;
+                                  },
+                                  icon: Icon(
+                                    Icons.remove_red_eye,
+                                    color: Colors.grey,
+                                  )),
+                            )),
                         const SizedBox(
                           height: 10.0,
                         ),
@@ -98,23 +103,25 @@ class SignUp extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Checkbox(
-                                value: false,
+                            Obx(() => Checkbox(
+                                value: controller.isSelected.value,
                                 onChanged: (checked) {
                                   //
-                                }),
+                                  controller.isSelected.value = checked!;
+                                  controller.showButton.value = checked;
+                                })),
                             TextButton(
                               onPressed: () {
                                 // direct to the terms and conditions of pursa
                               },
                               child: SizedBox(
-                                width: 240,
+                                width: 250,
                                 child: Text(
                                   "I have read and agreed to the tearms and conditions of using pursa",
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
                                       color: Color(0xff475777),
-                                      fontSize: 16,
+                                      fontSize: 15,
                                       fontWeight: FontWeight.w400),
                                 ),
                               ),
@@ -124,23 +131,29 @@ class SignUp extends StatelessWidget {
                         const SizedBox(
                           height: 15.0,
                         ),
-                        SizedBox(
-                          width: 110.0,
-                          child: DefaultElevatedButton(
-                              text: Text("Proceed",
-                                  style: TextStyle(color: Colors.white)),
-                              showArrowBack: false,
-                              showArrowFoward: false,
-                              backgroundColor: Color(0xff02210B),
-                              onPressed: () {
-                                //an  action should be done here before we move foward
+                        Obx(
+                          () => controller.showButton.value
+                              ? SizedBox(
+                                  width: 110.0,
+                                  child: DefaultElevatedButton(
+                                      text: Text("Proceed",
+                                          style:
+                                              TextStyle(color: Colors.white)),
+                                      showArrowBack: false,
+                                      showArrowFoward: false,
+                                      backgroundColor: Color(0xff218354),
+                                      onPressed: () {
+                                        //an  action should be done here before we move foward
 
-                                
-                              }),
+                                        Get.offAll(
+                                            () => const InboxCheckMessage());
+                                      }),
+                                )
+                              : Text(""),
                         ),
                         const SizedBox(
                           height: 15.0,
-                        ),         
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
