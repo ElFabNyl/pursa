@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pursa/composants/elevated_button.dart';
 import 'package:pursa/screens/authentification/select_country/select_country_ctrl.dart';
+import 'package:pursa/screens/authentification/sign_up/sign_up_page.dart';
 
 class SelectCountry extends StatefulWidget {
   const SelectCountry({Key? key}) : super(key: key);
@@ -56,7 +57,7 @@ class _SelectCountryState extends State<SelectCountry> {
                   height: 30.0,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
                   child: Obx(() => TextField(
                         onChanged: ((value) {
                           controller.filterCountries(value);
@@ -68,8 +69,9 @@ class _SelectCountryState extends State<SelectCountry> {
                               borderRadius: BorderRadius.circular(30.0),
                               borderSide: BorderSide.none),
                           hintText:
-                              controller.selected_country["country_name"] ??
-                                  "Type here...",
+                              controller.selected_country["country_name"] ?? "",
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 10.0, horizontal: 20.0),
                           prefixIcon: Icon(
                             Icons.search,
                             color: Colors.grey,
@@ -98,13 +100,19 @@ class _SelectCountryState extends State<SelectCountry> {
                                   },
                                   child: Row(
                                     children: [
-                                      Image.asset(controller.foundCountries
-                                          .value[index]["flag"]!),
+                                      Image.asset(
+                                          controller.foundCountries.value[index]
+                                              ["flag"]!,
+                                          scale: 2.0),
                                       const SizedBox(
                                         width: 30.0,
                                       ),
-                                      Text(controller.foundCountries
-                                          .value[index]["country_name"]!),
+                                      Text(
+                                        controller.foundCountries.value[index]
+                                            ["country_name"]!,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w700),
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -116,19 +124,15 @@ class _SelectCountryState extends State<SelectCountry> {
                   height: 8,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 10.0, vertical: 25.0),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 350,
-                        child: Text(
-                          'If your country is not on the list it means our services does not extend to your area.',
-                          style: TextStyle(color: Colors.grey, fontSize: 16.0),
-                          textAlign: TextAlign.center,
-                        ),
-                      )
-                    ],
+                  padding:
+                      const EdgeInsets.only(top: 15.0, left: 15.0, right: 15.0),
+                  child: SizedBox(
+                    width: 350,
+                    child: Text(
+                      'If your country is not on the list it means our services does not extend to your area.',
+                      style: TextStyle(color: Colors.grey, fontSize: 14.0),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -142,7 +146,11 @@ class _SelectCountryState extends State<SelectCountry> {
                       showArrowBack: false,
                       showArrowFoward: false,
                       backgroundColor: Color(0xff02210B),
-                      onPressed: () {}),
+                      onPressed: () {
+                        //an  action should be done here before we move foward
+
+                        Get.offAll(() => const SignUp());
+                      }),
                 )
               ],
             ),

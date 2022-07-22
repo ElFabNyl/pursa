@@ -1,61 +1,46 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CountryController extends GetxController {
   var selected_country = {
     "flag": 'assets/images/flags/CM.png',
-    "country_name": 'Cameroon',
+    "country_name": 'Type here...',
   }.obs;
 //available countries list
   final List<Map<String, String>> available_countries_list = [
     {
       "flag": 'assets/images/flags/CM.png',
-      "country_name": 'aaaaa',
+      "country_name": 'Cameroon',
     },
     {
-      "flag": 'assets/images/flags/CM.png',
-      "country_name": 'wwww',
+      "flag": 'assets/images/flags/RW.png',
+      "country_name": 'Rwanda',
+    },
+
+    {
+      "flag": 'assets/images/flags/BF.png',
+      "country_name": 'Burkina Faso',
     },
     {
-      "flag": 'assets/images/flags/CM.png',
-      "country_name": 'eeeee',
+      "flag": 'assets/images/flags/CI.png',
+      "country_name": 'Yvory Coast',
     },
     {
-      "flag": 'assets/images/flags/CM.png',
-      "country_name": 'rrrrrr',
+      "flag": 'assets/images/flags/GH.png',
+      "country_name": 'Ghana',
     },
     {
-      "flag": 'assets/images/flags/CM.png',
-      "country_name": 'yuyyyyy',
+      "flag": 'assets/images/flags/TD.png',
+      "country_name": 'Tchad',
     },
-    // {
-    //   "flag": Image.asset(
-    //     'assets/images/flags/BF.png',
-    //     scale: 2.0,
-    //   ),
-    //   "country_name": 'Burkina Faso',
-    // },
-    // {
-    //   "flag": Image.asset(
-    //     'assets/images/flags/CD.png',
-    //     width: 35,
-    //   ),
-    //   "country_name": 'RD Congo',
-    // },
-    // {
-    //   "flag": Image.asset(
-    //     'assets/images/flags/CI.png',
-    //     scale: 2,
-    //   ),
-    //   "country_name": 'Ivory Coast',
-    // },
-    // {
-    //   "flag": Image.asset(
-    //     'assets/images/flags/GH.png',
-    //     scale: 2,
-    //   ),
-    //   "country_name": 'Ghana',
-    // }
+    {
+      "flag": 'assets/images/flags/TG.png',
+      "country_name": 'Togo',
+    },
+    {
+      "flag": 'assets/images/flags/UG.png',
+      "country_name": 'Uganda',
+    },
+
   ];
 
   Rx<List<Map<String, String>>> foundCountries =
