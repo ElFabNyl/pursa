@@ -1,11 +1,21 @@
 import 'package:get/get.dart';
 
 class CountryController extends GetxController {
+  //this code  is for the the file choose_country_screen.dart 
+  var choose_country = "choose your country".obs;
+  
+
+
+
+
+
+
+  /***this code  is for the the file select_country.dart */
   var selected_country = {
     "flag": 'assets/images/flags/CM.png',
     "country_name": 'Type here...',
   }.obs;
-//available countries list
+
   final List<Map<String, String>> available_countries_list = [
     {
       "flag": 'assets/images/flags/CM.png',
@@ -15,7 +25,6 @@ class CountryController extends GetxController {
       "flag": 'assets/images/flags/RW.png',
       "country_name": 'Rwanda',
     },
-
     {
       "flag": 'assets/images/flags/BF.png',
       "country_name": 'Burkina Faso',
@@ -40,7 +49,6 @@ class CountryController extends GetxController {
       "flag": 'assets/images/flags/UG.png',
       "country_name": 'Uganda',
     },
-
   ];
 
   Rx<List<Map<String, String>>> foundCountries =

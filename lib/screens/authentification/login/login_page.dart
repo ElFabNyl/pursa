@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:pursa/composants/elevated_button.dart';
 import 'package:pursa/composants/text_field.dart';
 import 'package:pursa/screens/authentification/login/login_ctrl.dart';
+import 'package:pursa/screens/authentification/select_country/choose_country_screen.dart';
 import 'package:pursa/screens/authentification/sign_up/sign_up_page.dart';
 import 'package:pursa/screens/home/index.dart';
 
@@ -102,7 +103,7 @@ class Login extends StatelessWidget {
                       TextButton(
                           onPressed: () {
                             //
-                            Get.offAll(() => const SignUp());
+                            Get.to(() => const ChooseCountryScreen());
                           },
                           child: Text(
                             "Create  an account",

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pursa/composants/elevated_button.dart';
 import 'package:pursa/composants/text_field.dart';
+import 'package:pursa/screens/home/home.dart';
+import 'package:pursa/screens/home/index.dart';
 
 class CodeVerification extends StatelessWidget {
   const CodeVerification({Key? key}) : super(key: key);
@@ -55,12 +58,15 @@ class CodeVerification extends StatelessWidget {
                 SizedBox(
                   width: 110.0,
                   child: DefaultElevatedButton(
-                      text: Text("Verify", style: TextStyle(color: Colors.white)),
+                      text:
+                          Text("Verify", style: TextStyle(color: Colors.white)),
                       showArrowBack: false,
                       showArrowFoward: false,
                       backgroundColor: Color(0xff218354),
                       onPressed: () {
                         //an  action should be done here before we move foward
+
+                        Get.offAll(() => const Index());
                       }),
                 )
               ],
