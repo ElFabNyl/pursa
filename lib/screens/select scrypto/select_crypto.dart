@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pursa/screens/buy%20bitcoins/where_to_buy.dart';
 
 class SelectCrypto extends StatelessWidget {
   const SelectCrypto({Key? key}) : super(key: key);
@@ -24,10 +23,7 @@ class SelectCrypto extends StatelessWidget {
                 onTap: () {
                   //
 
-                  Get.snackbar(
-                    "PURSA NOTIFICATION",
-                    "Still working on this",
-                  );
+                  
                   // Get.to(() => const WhereToBy());
                 },
                 child: Container(

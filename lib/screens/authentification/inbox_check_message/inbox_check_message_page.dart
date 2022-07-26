@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:lottie/lottie.dart';
-import 'package:pursa/screens/authentification/code_verification/code_verification_page.dart';
+
+import 'package:pursa/screens/authentification/sign%20up%20with%20email/email_otp.dart';
+import 'package:pursa/screens/authentification/sign%20up%20with%20email/sign_up_ctrl.dart';
 
 class InboxCheckMessage extends StatelessWidget {
   const InboxCheckMessage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    SignUpController controller = Get.find();
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -46,42 +49,53 @@ class InboxCheckMessage extends StatelessWidget {
                           const SizedBox(
                             height: 10.0,
                           ),
-                          Text(
-                            "Please verify your email address",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontWeight: FontWeight.w700, fontSize: 20.0),
-                          ),
-                          const SizedBox(
-                            height: 20.0,
-                          ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text(
-                                "We sent a verification code to",
-                                style: TextStyle(
-                                    color: Color(0xff6D6D6D), fontSize: 17.0),
+                              Obx(
+                                () => Text(
+                                  controller.user_email.value,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: 20.0),
+                                ),
                               ),
-                              Text(
-                                "derekagendia1@gmail.com",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 15.0),
-                              ),
-                              const SizedBox(
-                                height: 20.0,
+                              
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Not the correct email ?",
+                                    style: TextStyle(
+                                        color: Color(0xff6D6D6D),
+                                        fontSize: 14.0),
+                                  ),
+                                  const SizedBox(
+                                    width: 6,
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+                                      //
+                                      Get.back();
+                                    },
+                                    child: Text(
+                                      "correct it here",
+                                      style: TextStyle(
+                                          color: Color(0xff0B48E4), fontSize: 14.0, fontWeight: FontWeight.w400),
+                                    ),
+                                  )
+                                ],
                               ),
                               TextButton(
                                   onPressed: () {
                                     //
-                                    Get.offAll(() => const CodeVerification());
+                                    Get.to(() => const EmailOtpScreen());
                                   },
                                   child: Text(
-                                    "Verify the code",
+                                    "Send verification code",
                                     style: TextStyle(
                                         fontSize: 16.0,
-                                        color: Colors.blue,
+                                        color: Color(0xff0B48E4),
                                         fontWeight: FontWeight.w800),
                                   ))
                             ],

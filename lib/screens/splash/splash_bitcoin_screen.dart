@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:pursa/screens/authentification/login/login_page.dart';
+import 'package:pursa/screens/authentification/sign%20up%20with%20email/email_input.dart';
 
-import '../authentification/select_country/select_country_page.dart';
 
 class SplashBitcoinScreen extends StatefulWidget {
   const SplashBitcoinScreen({Key? key}) : super(key: key);
@@ -20,7 +19,7 @@ class _SplashBitcoinScreenState extends State<SplashBitcoinScreen> {
     Future.delayed(
       const Duration(seconds: 4),
       () {
-        Get.offAll(() => const Login());
+        Get.offAll(() => const EmailInputScreen());
       },
     );
  }

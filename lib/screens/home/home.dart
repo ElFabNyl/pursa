@@ -80,7 +80,10 @@ class Home extends StatelessWidget {
                 carDescription: "Buy crypto currency directly into your wallet",
                 action: () {
                   //
-                  Get.to(() => SelectCrypto());
+                  Get.snackbar(
+                    "PURSA NOTIFICATION",
+                    "Still working on this",
+                  );
                 },
               ),
               const SizedBox(

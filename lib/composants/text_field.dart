@@ -41,16 +41,33 @@ class InputFormFieldWidget extends StatelessWidget {
               : TextInputType.text,
       decoration: InputDecoration(
         filled: true,
-        fillColor: Color(0xffF6F6F6),
+        fillColor: Color(0xffFFFBFB),
         hintText: hintText,
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         contentPadding:
             const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+             enabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.grey,
+          ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(9),
+          ),
+        ),
+           focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.grey,
+            width: 0.5,
+          ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(9),
+          ),
+        ),
         border: const OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.all(
-            Radius.circular(30),
+            Radius.circular(9),
           ),
         ),
        

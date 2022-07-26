@@ -5,8 +5,7 @@ import 'package:pursa/composants/text_field.dart';
 import 'package:pursa/screens/authentification/inbox_check_message/inbox_check_message_page.dart';
 import 'package:pursa/screens/authentification/login/login_page.dart';
 import 'package:pursa/screens/authentification/select_country/choose_country_screen.dart';
-import 'package:pursa/screens/authentification/select_country/select_country_page.dart';
-import 'package:pursa/screens/authentification/sign_up/sign_up_ctrl.dart';
+import 'package:pursa/screens/authentification/sign%20up%20with%20email/sign_up_ctrl.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({Key? key}) : super(key: key);

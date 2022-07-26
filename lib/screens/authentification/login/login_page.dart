@@ -4,7 +4,6 @@ import 'package:pursa/composants/elevated_button.dart';
 import 'package:pursa/composants/text_field.dart';
 import 'package:pursa/screens/authentification/login/login_ctrl.dart';
 import 'package:pursa/screens/authentification/select_country/choose_country_screen.dart';
-import 'package:pursa/screens/authentification/sign_up/sign_up_page.dart';
 import 'package:pursa/screens/home/index.dart';
 
 class Login extends StatelessWidget {
@@ -21,7 +20,7 @@ class Login extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Row(
+                Row( 
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset("assets/images/logo.png"),

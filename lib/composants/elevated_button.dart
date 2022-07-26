@@ -29,7 +29,7 @@ class DefaultElevatedButton extends StatelessWidget {
         elevation: MaterialStateProperty.all(elevation),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(9),
           ),
         ),
         backgroundColor: MaterialStateProperty.all(
@@ -37,14 +37,15 @@ class DefaultElevatedButton extends StatelessWidget {
         ),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           showArrowBack
               ? const Icon(Icons.arrow_back, color: Colors.white)
               : const Text(''),
           text,
+          const SizedBox(width: 20.0,),
           showArrowFoward
-              ? const Icon(Icons.arrow_forward, color: Colors.white)
+              ? const Icon(Icons.arrow_forward_ios, color: Colors.white)
               : const Text(''),
         ],
       ),
