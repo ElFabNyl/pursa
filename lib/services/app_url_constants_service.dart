@@ -5,5 +5,6 @@ class AppUrl {
   };
 
   static const String baseUrl = 'https://exchange.pursa.co/api/v1/';
+  static const String checkEmailExistance = 'check-email';
 
 }

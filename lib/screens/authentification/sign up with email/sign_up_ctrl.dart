@@ -6,6 +6,8 @@ class SignUpController extends GetxController {
   var viewPassword = true.obs;
   var user_email = "".obs;
 
+  var showLoadingIndicator = false.obs;
+
   var pin1 = "0".obs;
   var pin2 = "0".obs;
   var pin3 = "0".obs;

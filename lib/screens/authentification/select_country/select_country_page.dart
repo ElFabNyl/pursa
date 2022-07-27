@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pursa/composants/elevated_button.dart';
 import 'package:pursa/screens/authentification/select_country/select_country_ctrl.dart';
-import 'package:pursa/screens/authentification/sign_up/sign_up_page.dart';
+
 
 class SelectCountry extends StatefulWidget {
   const SelectCountry({Key? key}) : super(key: key);
@@ -149,7 +149,7 @@ class _SelectCountryState extends State<SelectCountry> {
                       onPressed: () {
                         //an  action should be done here before we move foward
 
-                        Get.to(() => const SignUp());
+                       
                       }),
                 )
               ],
