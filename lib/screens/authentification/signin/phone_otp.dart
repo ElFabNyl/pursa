@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:pursa/composants/elevated_button.dart';
-import 'package:pursa/screens/authentification/sign%20up%20with%20email/create_password.dart';
 import 'package:pursa/screens/authentification/sign%20up%20with%20email/sign_up_ctrl.dart';
 
-class EmailOtpScreen extends StatelessWidget {
-  const EmailOtpScreen({Key? key}) : super(key: key);
+class PhoneOtp extends StatelessWidget {
+  const PhoneOtp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +26,7 @@ class EmailOtpScreen extends StatelessWidget {
                   SizedBox(
                     width: 300,
                     child: Text(
-                      "Enter the verification code sent to you by email",
+                      "Enter the verification code sent to you by SMS",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 22.0, fontWeight: FontWeight.w900),
@@ -36,7 +35,7 @@ class EmailOtpScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 30.0),
-                         Form(
+              Form(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -247,11 +246,7 @@ class EmailOtpScreen extends StatelessWidget {
                       //
                       controller.pin.value = controller.getPin();
 
-                      print(controller.pin.value);
-
-                      Get.offAll(
-                        () => const CreatePasswordScreen(),
-                      );
+                     
                     }),
               )
             ],

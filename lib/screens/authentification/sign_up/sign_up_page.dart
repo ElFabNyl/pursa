@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:pursa/composants/elevated_button.dart';
 import 'package:pursa/composants/text_field.dart';
 import 'package:pursa/screens/authentification/inbox_check_message/inbox_check_message_page.dart';
-import 'package:pursa/screens/authentification/login/login_page.dart';
+
 import 'package:pursa/screens/authentification/select_country/choose_country_screen.dart';
 import 'package:pursa/screens/authentification/sign%20up%20with%20email/sign_up_ctrl.dart';
 
@@ -89,7 +89,7 @@ class SignUp extends StatelessWidget {
                               TextButton(
                                   onPressed: () {
                                     //
-                                    Get.offAll(() => Login());
+                                    
                                   },
                                   child: Text(
                                     " sign in instead",

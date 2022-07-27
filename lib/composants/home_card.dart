@@ -9,7 +9,8 @@ class HomeCard extends StatelessWidget {
     Key? key,
     required this.cardTitle,
     required this.carDescription,
-    required this.action, required this.crytoImage,
+    required this.action,
+    required this.crytoImage,
   }) : super(key: key);
 
   @override
@@ -22,7 +23,7 @@ class HomeCard extends StatelessWidget {
           elevation: 5.0,
           child: Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
+                const EdgeInsets.symmetric(horizontal: 7.0, vertical: 20.0),
             child: Row(
               children: [
                 crytoImage,

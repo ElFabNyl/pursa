@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:lottie/lottie.dart';
-
-import 'package:pursa/screens/authentification/sign%20up%20with%20email/email_otp.dart';
 import 'package:pursa/screens/authentification/sign%20up%20with%20email/sign_up_ctrl.dart';
+import 'package:pursa/screens/authentification/signin/sign_in_with_password.dart';
+import 'package:pursa/screens/authentification/signin/sign_in_with_phone_number.dart';
 
 class EmailExistScreen extends StatelessWidget {
   const EmailExistScreen({Key? key}) : super(key: key);
@@ -36,7 +35,7 @@ class EmailExistScreen extends StatelessWidget {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 25.0, vertical: 30.0),
+                          horizontal: 15.0, vertical: 15.0),
                       child: Column(
                         children: [
                           Column(
@@ -65,54 +64,47 @@ class EmailExistScreen extends StatelessWidget {
                                         color: Color(0xff6D6D6D),
                                         fontSize: 16.0),
                                   ),
-                                  const SizedBox(
-                                    width: 6,
-                                  ),
                                 ],
                               ),
                               const SizedBox(
-                                height: 15.0,
+                                height: 9.0,
                               ),
                               Divider(
                                 color: Colors.grey,
                               ),
-                              const SizedBox(
-                                height: 15.0,
-                              ),
                               TextButton(
                                 onPressed: () {
                                   //
+                                  Get.to(() => const SignInWithPassword());
                                 },
                                 child: Text(
                                   "Password",
                                   style: TextStyle(
                                       fontSize: 16.0,
-                                      color: Color(0xff0B48E4),
+                                      color: Color(0xff176EAD),
                                       fontWeight: FontWeight.w800),
                                 ),
-                              ),
-                              const SizedBox(
-                                height: 15.0,
                               ),
                               Divider(
                                 color: Colors.grey,
                               ),
-                              const SizedBox(
-                                height: 15.0,
-                              ),
                               TextButton(
                                 onPressed: () {
                                   //
+                                  Get.to(() => const SignInWithPhoneNumber());
                                 },
                                 child: Text(
                                   "Phone number",
                                   style: TextStyle(
                                       fontSize: 16.0,
-                                      color: Color(0xff0B48E4),
+                                      color: Color(0xff176EAD),
                                       fontWeight: FontWeight.w800),
                                 ),
                               ),
-                                TextButton(
+                              Divider(
+                                color: Colors.grey,
+                              ),
+                              TextButton(
                                 onPressed: () {
                                   //
                                 },
@@ -120,11 +112,10 @@ class EmailExistScreen extends StatelessWidget {
                                   "Google account",
                                   style: TextStyle(
                                       fontSize: 16.0,
-                                      color: Color(0xff0B48E4),
+                                      color: Color(0xff176EAD),
                                       fontWeight: FontWeight.w800),
                                 ),
                               ),
-                              const SizedBox(height: 15.0),
                             ],
                           )
                         ],
