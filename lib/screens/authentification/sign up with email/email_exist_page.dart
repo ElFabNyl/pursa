@@ -44,10 +44,16 @@ class EmailExistScreen extends StatelessWidget {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
+                                  Text(
+                                    "Welcome back ",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w800,
+                                        fontSize: 20.0,
+                                        color: Colors.grey),
+                                  ),
                                   Obx(
                                     () => Text(
-                                      "Welcome back " +
-                                          controller.user_email.value,
+                                      controller.user_name.value,
                                       style: TextStyle(
                                           fontWeight: FontWeight.w800,
                                           fontSize: 20.0),

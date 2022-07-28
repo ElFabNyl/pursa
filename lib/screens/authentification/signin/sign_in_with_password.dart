@@ -15,100 +15,120 @@ class SignInWithPassword extends StatefulWidget {
 class _SignInWithPasswordState extends State<SignInWithPassword> {
   @override
   Widget build(BuildContext context) {
+    //for form validation
+    final _formkey = GlobalKey<FormState>();
     //finding the controller
     SignUpController controller = Get.find();
 
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 100, left: 15.0, right: 15.0),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Column(
-                      children: [
-                        Image.asset('assets/images/logo.png'),
-                        const SizedBox(
-                          height: 30.0,
-                        ),
-                        Text(
-                          'Sign in with password',
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.w800,
-                            color: Color(0xff101437),
+        child: Form(
+          key: _formkey,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 100, left: 15.0, right: 15.0),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        children: [
+                          Image.asset('assets/images/logo.png'),
+                          const SizedBox(
+                            height: 30.0,
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 30.0,
-                ),
-                Row(
-                  children: [
-                    Text(
-                      "Enter your password",
-                      style: TextStyle(fontSize: 18.0),
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                Obx(
-                  () => InputFormFieldWidget(
-                    onChanged: (value) {
-                      controller.user_email.value = value;
-                    },
-                    isnumberInput: false,
-                    isEmailInput: false,
-                    obscureText: controller.viewPassword.value,
-                    hintText: "Type here...",
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        //
-                        controller.viewPassword.value =
-                            !controller.viewPassword.value;
+                          Text(
+                            'Sign in with password',
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w800,
+                              color: Color(0xff101437),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 30.0,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        "Enter your password",
+                        style: TextStyle(fontSize: 18.0),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  Obx(
+                    () => InputFormFieldWidget(
+                      onChanged: (value) {
+                        controller.user_email.value = value;
                       },
-                      icon: Icon(
-                        Icons.remove_red_eye,
-                        color: Colors.grey,
+                      checkInput: (input) {
+                        if (input == null || input.isEmpty) {
+                          return 'The field is empty';
+                        } else if (input.length < 8) {
+                          return 'Password should have at least 8 digits';
+                        }
+                      },
+                      isnumberInput: false,
+                      isEmailInput: false,
+                      obscureText: controller.viewPassword.value,
+                      hintText: "Type here...",
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          //
+                          controller.viewPassword.value =
+                              !controller.viewPassword.value;
+                        },
+                        icon: Icon(
+                          Icons.remove_red_eye,
+                          color: Colors.grey,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 20.0,
-                ),
-                SizedBox(
-                  width: 140.0,
-                  child: DefaultElevatedButton(
-                      text: Padding(
-                        padding: const EdgeInsets.only(left: 15.0),
-                        child: Text(
-                          "Done",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.white, fontSize: 17, fontWeight: FontWeight.w800),
+                  const SizedBox(
+                    height: 20.0,
+                  ),
+                  SizedBox(
+                    width: 140.0,
+                    child: DefaultElevatedButton(
+                        text: Padding(
+                          padding: const EdgeInsets.only(left: 15.0),
+                          child: Text(
+                            "Done",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 17,
+                                fontWeight: FontWeight.w800),
+                          ),
                         ),
-                      ),
-                      showArrowBack: false,
-                      showArrowFoward: false,
-                      elevation: 4.0,
-                      backgroundColor: Color(0xff218354),
-                      onPressed: () {
-                        //an  action should be done here before we move foward
+                        showArrowBack: false,
+                        showArrowFoward: false,
+                        elevation: 4.0,
+                        backgroundColor: Color(0xff218354),
+                        onPressed: () {
+                          if (_formkey.currentState!.validate()) {
+                            //
 
-                        Get.offAll(
-                          () => const Index(),
-                        );
-                      }),
-                )
-              ],
+                            print("good");
+                            //an  action should be done here before we move foward
+
+                            // Get.offAll(
+                            //   () => const Index(),
+                            // );
+                          }
+                        }),
+                  )
+                ],
+              ),
             ),
           ),
         ),

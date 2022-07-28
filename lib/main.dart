@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
     return  GetMaterialApp(
       initialBinding: InitializeDepedencies(),
       debugShowCheckedModeBanner: false,
-      home: EmailInputScreen(),
+      home: EmailExistScreen(),
     );
   }
 }
