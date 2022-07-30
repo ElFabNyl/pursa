@@ -7,5 +7,6 @@ class AppUrl {
   static const String baseUrl = 'https://exchange.pursa.co/api/v1/';
   static const String checkEmailExistance = 'check-email';
   static const String codeVerification = 'verifycode';
-
+  static const String login = 'login';
+  static const String register = 'complete-profile';
 }

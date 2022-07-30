@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "773633020730",
+    "project_id": "pursa-ba11b",
+    "storage_bucket": "pursa-ba11b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:773633020730:android:9d9c08939c18f8954d3603",
+        "android_client_info": {
+          "package_name": "com.example.pursa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "773633020730-apr7h868uhas6a5r8t0uvsg7r9npm1pp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pursa",
+            "certificate_hash": "72efcd0e1e2e15e3ab84197b0641958b8029a7c1"
+          }
+        },
+        {
+          "client_id": "773633020730-potlgehlfklq74kajhck64i791nj3kgj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZPrwQM2cm68-VZy0vMBA4XgoWjoOUs9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "773633020730-potlgehlfklq74kajhck64i791nj3kgj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pursa/composants/elevated_button.dart';
 import 'package:pursa/screens/authentification/sign%20up%20with%20email/sign_up_ctrl.dart';
-import 'package:pursa/screens/authentification/signin/phone_otp.dart';
-import 'package:pursa/screens/home/index.dart';
+import 'package:pursa/services/phone_verification.dart';
 
 class SignInWithPhoneNumber extends StatefulWidget {
   const SignInWithPhoneNumber({Key? key}) : super(key: key);
@@ -63,14 +62,20 @@ class _SignInWithPhoneNumberState extends State<SignInWithPhoneNumber> {
                 Container(
                   width: double.infinity,
                   child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Text(
-                      "+237 " + "699****48",
-                      textAlign: TextAlign.left,
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-                    ),
-                  ),
+                      padding: const EdgeInsets.all(15.0),
+                      child: Obx(
+                        () => Text(
+                          "+"+controller.user_code_tel.value+" " +
+                              controller.user_phone_number.value
+                                  .substring(0, 3) +
+                              "** **" +
+                              controller.user_phone_number.value
+                                  .substring(7, 9),
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w400),
+                        ),
+                      )),
                   decoration: BoxDecoration(
                       color: Color(0xffDFE5DE),
                       borderRadius: BorderRadius.circular(10)),
@@ -98,7 +103,9 @@ class _SignInWithPhoneNumberState extends State<SignInWithPhoneNumber> {
                       backgroundColor: Color(0xff218354),
                       onPressed: () {
                         //an  action should be done here before we move foward
-                        Get.to(() => const PhoneOtp());
+                        
+                        PhoneVerification.phoneVerification(
+                            "+"+controller.user_code_tel.value+controller.user_phone_number.value);
                       }),
                 )
               ],

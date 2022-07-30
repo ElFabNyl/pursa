@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pursa/screens/authentification/sign%20up%20with%20email/email_exist_page.dart';
@@ -7,12 +8,12 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'helpers/init_controllers.dart';
 
-void main()  {
-  
+void main() async {
   //this is related to the splash screen we preserve it till the whole app
   //is setup
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -24,10 +25,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // whenever your initialization is completed, remove the splash screen:
     FlutterNativeSplash.remove();
-    return  GetMaterialApp(
+    return GetMaterialApp(
       initialBinding: InitializeDepedencies(),
       debugShowCheckedModeBanner: false,
-      home: EmailExistScreen(),
+      home: EmailInputScreen(),
     );
   }
 }

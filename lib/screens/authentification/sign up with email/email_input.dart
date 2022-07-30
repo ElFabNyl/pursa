@@ -6,7 +6,6 @@ import 'package:pursa/composants/elevated_button.dart';
 import 'package:pursa/composants/text_field.dart';
 import 'package:pursa/screens/authentification/inbox_check_message/inbox_check_message_page.dart';
 import 'package:pursa/screens/authentification/sign%20up%20with%20email/email_exist_page.dart';
-import 'package:pursa/screens/authentification/sign%20up%20with%20email/email_otp.dart';
 import 'package:pursa/screens/authentification/sign%20up%20with%20email/sign_up_ctrl.dart';
 import 'package:pursa/services/api_service_auth.dart';
 
@@ -119,18 +118,20 @@ class _EmailInputScreenState extends State<EmailInputScreen> {
                                               controller.user_email.value);
 
                                   if (result_query == false) {
-                                     Get.to(() => const InboxCheckMessage());
+                                    Get.to(() => const InboxCheckMessage());
                                     controller.showLoadingIndicator.value =
                                         false;
-                                   
                                   } else if (result_query["sn"] == "") {
-                                     Get.to(() => const InboxCheckMessage());
+                                    Get.to(() => const InboxCheckMessage());
                                     controller.showLoadingIndicator.value =
                                         false;
-                                   
                                   } else {
                                     controller.user_name.value =
                                         result_query["sn"];
+                                    controller.user_phone_number.value =
+                                        result_query["tel"];
+                                    controller.user_code_tel.value =
+                                        result_query["code_tel"];
 
                                     controller.showLoadingIndicator.value =
                                         false;

@@ -133,7 +133,7 @@ class CreatePasswordScreen extends StatelessWidget {
                                     showArrowFoward: true,
                                     backgroundColor: Color(0xff218354),
                                     onPressed: () {
-                                      //an  action should be done here before we move foward
+                                      //an  action should be done here (register user) before we move foward
 
                                       Get.offAll(() => const Index());
                                     }),

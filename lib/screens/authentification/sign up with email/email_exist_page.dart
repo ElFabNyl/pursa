@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:pursa/screens/authentification/sign%20up%20with%20email/sign_up_ctrl.dart';
 import 'package:pursa/screens/authentification/signin/sign_in_with_password.dart';
 import 'package:pursa/screens/authentification/signin/sign_in_with_phone_number.dart';
+import 'package:pursa/screens/home/index.dart';
+import 'package:pursa/services/google_auth.dart';
 
 class EmailExistScreen extends StatelessWidget {
   const EmailExistScreen({Key? key}) : super(key: key);
@@ -111,8 +113,17 @@ class EmailExistScreen extends StatelessWidget {
                                 color: Colors.grey,
                               ),
                               TextButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   //
+                                  controller.showLoadingIndicator.value = true;
+                                  try {
+                                    await GoogleAuth.signInWithGoogle();
+                                    //il faut d'abord le register avant de partir au home...
+                                    Get.offAll(() => Index());
+                                     controller.showLoadingIndicator.value = false;
+                                  } catch (e) {
+                                    print(e);
+                                  }
                                 },
                                 child: Text(
                                   "Google account",
