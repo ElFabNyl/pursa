@@ -8,5 +8,5 @@ class AppUrl {
   static const String checkEmailExistance = 'check-email';
   static const String codeVerification = 'verifycode';
   static const String login = 'login';
-  static const String register = 'complete-profile';
+  static const String register = 'complet-profile';
 }

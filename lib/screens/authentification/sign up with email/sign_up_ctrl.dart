@@ -10,6 +10,10 @@ class SignUpController extends GetxController {
   var user_phone_number = "".obs;
   var user_code_tel = "".obs;
 
+  var user_come_from_web = false.obs;
+
+  var email_validation_code = "".obs;
+
   var code_verification_id = "".obs;
 
   var phoneNumberIsChecked = false.obs;
@@ -23,7 +27,9 @@ class SignUpController extends GetxController {
   var pin5 = "".obs;
   var pin6 = "".obs;
 
-  var pin = "".obs;
+  var pin_phone = "".obs;
+
+  var pin_email = "".obs;
 
   String getPin() {
     return pin1.value + pin2.value + pin3.value + pin4.value + pin5.value;

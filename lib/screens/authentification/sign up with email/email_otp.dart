@@ -260,9 +260,9 @@ class EmailOtpScreen extends StatelessWidget {
                             backgroundColor: Color(0xff218354),
                             onPressed: () async {
                               //
-                              controller.pin.value = controller.getPin();
+                              controller.pin_email.value = controller.getPin();
 
-                              if (controller.pin.value.length < 5) {
+                              if (controller.pin_email.value.length < 5) {
                                 Get.snackbar(
                                   "PURSA NOTIFICATION",
                                   "please fill all the OTP input",
@@ -280,12 +280,13 @@ class EmailOtpScreen extends StatelessWidget {
                                 var result_query =
                                     await AuthentificationApiService
                                         .EmailOTPVerification(
-                                            controller.pin.value);
+                                            controller.pin_email.value);
 
-                                if (result_query['status']== true) {
+                                if (result_query['status'] == true) {
                                   controller.user_email.value =
                                       result_query["data"]["email"];
-
+                                  controller.email_validation_code.value =
+                                      controller.pin_email.value;
                                   Get.offAll(
                                     () => const CreatePasswordScreen(),
                                   );

@@ -99,6 +99,7 @@ class EmailExistScreen extends StatelessWidget {
                               TextButton(
                                 onPressed: () {
                                   //
+                                  
                                   Get.to(() => const SignInWithPhoneNumber());
                                 },
                                 child: Text(

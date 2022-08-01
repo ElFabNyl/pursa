@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -298,10 +297,10 @@ class PhoneOtp extends StatelessWidget {
                             backgroundColor: Color(0xff218354),
                             onPressed: () async {
                               //
-                              controller.pin.value =
+                              controller.pin_phone.value =
                                   controller.getPinForPhoneOtpCheck();
 
-                              if (controller.pin.value.length < 6) {
+                              if (controller.pin_phone.value.length < 6) {
                                 Get.snackbar(
                                   "PURSA NOTIFICATION",
                                   "please fill all the OTP input",
@@ -317,7 +316,7 @@ class PhoneOtp extends StatelessWidget {
                                 //
 
                                 PhoneVerification.checkOtp(
-                                    controller.pin.value);
+                                    controller.pin_phone.value);
                               }
                             }),
                       )

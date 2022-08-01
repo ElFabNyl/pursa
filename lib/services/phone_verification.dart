@@ -39,7 +39,7 @@ class PhoneVerification {
           //we remove the loading...
           controller.showLoadingIndicator.value = false;
           Get.snackbar(
-              "PURSA NOTIFICATION", 'Mothing went wrong !Please try again',
+              "PURSA NOTIFICATION", 'Something went wrong !Please try again',
               icon: const Icon(Icons.error, color: Colors.red),
               snackPosition: SnackPosition.TOP,
               duration: const Duration(seconds: 8));

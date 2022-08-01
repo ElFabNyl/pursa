@@ -62,20 +62,21 @@ class _SignInWithPhoneNumberState extends State<SignInWithPhoneNumber> {
                 Container(
                   width: double.infinity,
                   child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Obx(
-                        () => Text(
-                          "+"+controller.user_code_tel.value+" " +
-                              controller.user_phone_number.value
-                                  .substring(0, 3) +
-                              "** **" +
-                              controller.user_phone_number.value
-                                  .substring(7, 9),
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w400),
-                        ),
-                      )),
+                    padding: const EdgeInsets.all(15.0),
+                    child: Obx(
+                      () => Text(
+                        "+" +
+                            controller.user_code_tel.value +
+                            " " +
+                            controller.user_phone_number.value.substring(0, 3) +
+                            "** **" +
+                            controller.user_phone_number.value.substring(7, 9),
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.w400),
+                      ),
+                    ),
+                  ),
                   decoration: BoxDecoration(
                       color: Color(0xffDFE5DE),
                       borderRadius: BorderRadius.circular(10)),
@@ -103,9 +104,9 @@ class _SignInWithPhoneNumberState extends State<SignInWithPhoneNumber> {
                       backgroundColor: Color(0xff218354),
                       onPressed: () {
                         //an  action should be done here before we move foward
-                        
-                        PhoneVerification.phoneVerification(
-                            "+"+controller.user_code_tel.value+controller.user_phone_number.value);
+                        PhoneVerification.phoneVerification("+" +
+                            controller.user_code_tel.value +
+                            controller.user_phone_number.value);
                       }),
                 )
               ],

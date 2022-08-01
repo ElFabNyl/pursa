@@ -82,7 +82,7 @@ class Home extends StatelessWidget {
                   //
                   Get.snackbar(
                     "PURSA NOTIFICATION",
-                    "Still working on this",
+                    "this flow is not completed ",
                   );
                 },
               ),

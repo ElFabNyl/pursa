@@ -126,6 +126,7 @@ class _EmailInputScreenState extends State<EmailInputScreen> {
                                     controller.showLoadingIndicator.value =
                                         false;
                                   } else {
+                                    controller.user_come_from_web.value = true;
                                     controller.user_name.value =
                                         result_query["sn"];
                                     controller.user_phone_number.value =
@@ -135,7 +136,7 @@ class _EmailInputScreenState extends State<EmailInputScreen> {
 
                                     controller.showLoadingIndicator.value =
                                         false;
-
+                                    print(controller.user_come_from_web.value);
                                     Get.to(
                                       () => const EmailExistScreen(),
                                     );
