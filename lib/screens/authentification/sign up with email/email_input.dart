@@ -8,6 +8,7 @@ import 'package:pursa/screens/authentification/inbox_check_message/inbox_check_m
 import 'package:pursa/screens/authentification/sign%20up%20with%20email/email_exist_page.dart';
 import 'package:pursa/screens/authentification/sign%20up%20with%20email/sign_up_ctrl.dart';
 import 'package:pursa/services/api_service_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class EmailInputScreen extends StatefulWidget {
   const EmailInputScreen({Key? key}) : super(key: key);
@@ -16,14 +17,18 @@ class EmailInputScreen extends StatefulWidget {
   State<EmailInputScreen> createState() => _EmailInputScreenState();
 }
 
+
+
 class _EmailInputScreenState extends State<EmailInputScreen> {
+
+  
   @override
   Widget build(BuildContext context) {
     //for form validation
     final _formkey = GlobalKey<FormState>();
     //finding the controller
     SignUpController controller = Get.find();
-
+    
     return Scaffold(
       body: Form(
         key: _formkey,
@@ -133,10 +138,12 @@ class _EmailInputScreenState extends State<EmailInputScreen> {
                                         result_query["tel"];
                                     controller.user_code_tel.value =
                                         result_query["code_tel"];
-
+                                    
+                                    
+                                    
                                     controller.showLoadingIndicator.value =
                                         false;
-                                    print(controller.user_come_from_web.value);
+
                                     Get.to(
                                       () => const EmailExistScreen(),
                                     );

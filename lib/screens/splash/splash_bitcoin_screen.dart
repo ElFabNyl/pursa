@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pursa/screens/authentification/sign%20up%20with%20email/email_input.dart';
-
+import 'package:pursa/screens/authentification/sign%20up%20with%20email/sign_up_ctrl.dart';
+import 'package:pursa/screens/home/index.dart';
 
 class SplashBitcoinScreen extends StatefulWidget {
   const SplashBitcoinScreen({Key? key}) : super(key: key);
@@ -12,18 +13,19 @@ class SplashBitcoinScreen extends StatefulWidget {
 }
 
 class _SplashBitcoinScreenState extends State<SplashBitcoinScreen> {
-  
   @override
   void initState() {
     super.initState();
+    SignUpController controller = Get.find();
     Future.delayed(
       const Duration(seconds: 4),
       () {
-        Get.offAll(() => const EmailInputScreen());
+        controller.user_is_connected.value
+            ? Get.offAll(() => const EmailInputScreen())
+            : Get.offAll(() => const Index());
       },
     );
- }
- 
+  }
 
   @override
   Widget build(BuildContext context) {

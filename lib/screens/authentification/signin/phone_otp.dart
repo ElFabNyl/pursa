@@ -48,240 +48,243 @@ class PhoneOtp extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 30.0),
-                      Form(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SizedBox(
-                              height: 50,
-                              width: 50,
-                              child: TextFormField(
-                                onChanged: (value) {
-                                  //
-                                  if (value.length == 1) {
-                                    FocusScope.of(context).nextFocus();
-                                  }
-                                  controller.pin1.value = value;
-                                },
-                                style: Theme.of(context).textTheme.headline6,
-                                decoration: InputDecoration(
-                                  enabledBorder: const OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Colors.grey,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal : 20.0),
+                        child: Form(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(
+                                height: 50,
+                                width: 50,
+                                child: TextFormField(
+                                  onChanged: (value) {
+                                    //
+                                    if (value.length == 1) {
+                                      FocusScope.of(context).nextFocus();
+                                    }
+                                    controller.pin1.value = value;
+                                  },
+                                  style: Theme.of(context).textTheme.headline6,
+                                  decoration: InputDecoration(
+                                    enabledBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.grey,
+                                      ),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(9),
+                                      ),
                                     ),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(9),
+                                    focusedBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.grey,
+                                        width: 0.5,
+                                      ),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(9),
+                                      ),
                                     ),
                                   ),
-                                  focusedBorder: const OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Colors.grey,
-                                      width: 0.5,
-                                    ),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(9),
-                                    ),
-                                  ),
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  inputFormatters: [
+                                    LengthLimitingTextInputFormatter(1),
+                                    FilteringTextInputFormatter.digitsOnly,
+                                  ],
                                 ),
-                                keyboardType: TextInputType.number,
-                                textAlign: TextAlign.center,
-                                inputFormatters: [
-                                  LengthLimitingTextInputFormatter(1),
-                                  FilteringTextInputFormatter.digitsOnly,
-                                ],
                               ),
-                            ),
-                            SizedBox(
-                              height: 50,
-                              width: 50,
-                              child: TextFormField(
-                                onChanged: (value) {
-                                  //
-                                  if (value.length == 1) {
-                                    FocusScope.of(context).nextFocus();
-                                  }
-                                  controller.pin2.value = value;
-                                },
-                                style: Theme.of(context).textTheme.headline6,
-                                decoration: InputDecoration(
-                                  enabledBorder: const OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Colors.grey,
+                              SizedBox(
+                                height: 50,
+                                width: 50,
+                                child: TextFormField(
+                                  onChanged: (value) {
+                                    //
+                                    if (value.length == 1) {
+                                      FocusScope.of(context).nextFocus();
+                                    }
+                                    controller.pin2.value = value;
+                                  },
+                                  style: Theme.of(context).textTheme.headline6,
+                                  decoration: InputDecoration(
+                                    enabledBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.grey,
+                                      ),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(9),
+                                      ),
                                     ),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(9),
+                                    focusedBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.grey,
+                                        width: 0.5,
+                                      ),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(9),
+                                      ),
                                     ),
                                   ),
-                                  focusedBorder: const OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Colors.grey,
-                                      width: 0.5,
-                                    ),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(9),
-                                    ),
-                                  ),
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  inputFormatters: [
+                                    LengthLimitingTextInputFormatter(1),
+                                    FilteringTextInputFormatter.digitsOnly,
+                                  ],
                                 ),
-                                keyboardType: TextInputType.number,
-                                textAlign: TextAlign.center,
-                                inputFormatters: [
-                                  LengthLimitingTextInputFormatter(1),
-                                  FilteringTextInputFormatter.digitsOnly,
-                                ],
                               ),
-                            ),
-                            SizedBox(
-                              height: 50,
-                              width: 50,
-                              child: TextFormField(
-                                onChanged: (value) {
-                                  //
-                                  if (value.length == 1) {
-                                    FocusScope.of(context).nextFocus();
-                                  }
-                                  controller.pin3.value = value;
-                                },
-                                style: Theme.of(context).textTheme.headline6,
-                                decoration: InputDecoration(
-                                  enabledBorder: const OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Colors.grey,
+                              SizedBox(
+                                height: 50,
+                                width: 50,
+                                child: TextFormField(
+                                  onChanged: (value) {
+                                    //
+                                    if (value.length == 1) {
+                                      FocusScope.of(context).nextFocus();
+                                    }
+                                    controller.pin3.value = value;
+                                  },
+                                  style: Theme.of(context).textTheme.headline6,
+                                  decoration: InputDecoration(
+                                    enabledBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.grey,
+                                      ),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(9),
+                                      ),
                                     ),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(9),
+                                    focusedBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.grey,
+                                        width: 0.5,
+                                      ),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(9),
+                                      ),
                                     ),
                                   ),
-                                  focusedBorder: const OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Colors.grey,
-                                      width: 0.5,
-                                    ),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(9),
-                                    ),
-                                  ),
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  inputFormatters: [
+                                    LengthLimitingTextInputFormatter(1),
+                                    FilteringTextInputFormatter.digitsOnly,
+                                  ],
                                 ),
-                                keyboardType: TextInputType.number,
-                                textAlign: TextAlign.center,
-                                inputFormatters: [
-                                  LengthLimitingTextInputFormatter(1),
-                                  FilteringTextInputFormatter.digitsOnly,
-                                ],
                               ),
-                            ),
-                            SizedBox(
-                              height: 50,
-                              width: 50,
-                              child: TextFormField(
-                                onChanged: (value) {
-                                  //
-                                  if (value.length == 1) {
-                                    FocusScope.of(context).nextFocus();
-                                  }
-                                  controller.pin4.value = value;
-                                },
-                                style: Theme.of(context).textTheme.headline6,
-                                decoration: InputDecoration(
-                                  enabledBorder: const OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Colors.grey,
+                              SizedBox(
+                                height: 50,
+                                width: 50,
+                                child: TextFormField(
+                                  onChanged: (value) {
+                                    //
+                                    if (value.length == 1) {
+                                      FocusScope.of(context).nextFocus();
+                                    }
+                                    controller.pin4.value = value;
+                                  },
+                                  style: Theme.of(context).textTheme.headline6,
+                                  decoration: InputDecoration(
+                                    enabledBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.grey,
+                                      ),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(9),
+                                      ),
                                     ),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(9),
+                                    focusedBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.grey,
+                                        width: 0.5,
+                                      ),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(9),
+                                      ),
                                     ),
                                   ),
-                                  focusedBorder: const OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Colors.grey,
-                                      width: 0.5,
-                                    ),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(9),
-                                    ),
-                                  ),
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  inputFormatters: [
+                                    LengthLimitingTextInputFormatter(1),
+                                    FilteringTextInputFormatter.digitsOnly,
+                                  ],
                                 ),
-                                keyboardType: TextInputType.number,
-                                textAlign: TextAlign.center,
-                                inputFormatters: [
-                                  LengthLimitingTextInputFormatter(1),
-                                  FilteringTextInputFormatter.digitsOnly,
-                                ],
                               ),
-                            ),
-                            SizedBox(
-                              height: 50,
-                              width: 50,
-                              child: TextFormField(
-                                onChanged: (value) {
-                                  if (value.length == 1) {
-                                    FocusScope.of(context).nextFocus();
-                                  }
-                                  controller.pin5.value = value;
-                                },
-                                style: Theme.of(context).textTheme.headline6,
-                                decoration: InputDecoration(
-                                  enabledBorder: const OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Colors.grey,
+                              SizedBox(
+                                height: 50,
+                                width: 50,
+                                child: TextFormField(
+                                  onChanged: (value) {
+                                    if (value.length == 1) {
+                                      FocusScope.of(context).nextFocus();
+                                    }
+                                    controller.pin5.value = value;
+                                  },
+                                  style: Theme.of(context).textTheme.headline6,
+                                  decoration: InputDecoration(
+                                    enabledBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.grey,
+                                      ),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(9),
+                                      ),
                                     ),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(9),
+                                    focusedBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.grey,
+                                        width: 0.5,
+                                      ),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(9),
+                                      ),
                                     ),
                                   ),
-                                  focusedBorder: const OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Colors.grey,
-                                      width: 0.5,
-                                    ),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(9),
-                                    ),
-                                  ),
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  inputFormatters: [
+                                    LengthLimitingTextInputFormatter(1),
+                                    FilteringTextInputFormatter.digitsOnly,
+                                  ],
                                 ),
-                                keyboardType: TextInputType.number,
-                                textAlign: TextAlign.center,
-                                inputFormatters: [
-                                  LengthLimitingTextInputFormatter(1),
-                                  FilteringTextInputFormatter.digitsOnly,
-                                ],
                               ),
-                            ),
-                            SizedBox(
-                              height: 50,
-                              width: 50,
-                              child: TextFormField(
-                                onChanged: (value) {
-                                  controller.pin6.value = value;
-                                },
-                                style: Theme.of(context).textTheme.headline6,
-                                decoration: InputDecoration(
-                                  enabledBorder: const OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Colors.grey,
+                              SizedBox(
+                                height: 50,
+                                width: 50,
+                                child: TextFormField(
+                                  onChanged: (value) {
+                                    controller.pin6.value = value;
+                                  },
+                                  style: Theme.of(context).textTheme.headline6,
+                                  decoration: InputDecoration(
+                                    enabledBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.grey,
+                                      ),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(9),
+                                      ),
                                     ),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(9),
+                                    focusedBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.grey,
+                                        width: 0.5,
+                                      ),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(9),
+                                      ),
                                     ),
                                   ),
-                                  focusedBorder: const OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Colors.grey,
-                                      width: 0.5,
-                                    ),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(9),
-                                    ),
-                                  ),
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  inputFormatters: [
+                                    LengthLimitingTextInputFormatter(1),
+                                    FilteringTextInputFormatter.digitsOnly,
+                                  ],
                                 ),
-                                keyboardType: TextInputType.number,
-                                textAlign: TextAlign.center,
-                                inputFormatters: [
-                                  LengthLimitingTextInputFormatter(1),
-                                  FilteringTextInputFormatter.digitsOnly,
-                                ],
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                       const SizedBox(height: 30.0),

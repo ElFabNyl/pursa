@@ -4,21 +4,21 @@ class SignUpController extends GetxController {
   var isSelected = false.obs;
   var showButton = false.obs;
   var viewPassword = true.obs;
+  var showLoadingIndicator = false.obs;
+  var user_is_connected = false.obs;
+  //
   var user_email = "".obs;
   var user_name = "".obs;
   var user_password = "".obs;
   var user_phone_number = "".obs;
   var user_code_tel = "".obs;
 
-  var user_come_from_web = false.obs;
-
   var email_validation_code = "".obs;
+  var user_come_from_web = false.obs;
+  var user_phone_was_checked = false.obs;
 
+//
   var code_verification_id = "".obs;
-
-  var phoneNumberIsChecked = false.obs;
-
-  var showLoadingIndicator = false.obs;
 
   var pin1 = "".obs;
   var pin2 = "".obs;

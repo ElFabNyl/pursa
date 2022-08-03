@@ -45,7 +45,7 @@ class DefaultElevatedButton extends StatelessWidget {
           text,
           const SizedBox(width: 20.0,),
           showArrowFoward
-              ? const Icon(Icons.arrow_forward_ios, color: Colors.white)
+              ? const Icon(Icons.arrow_forward_ios, color: Colors.white, size: 10.0,)
               : const Text(''),
         ],
       ),

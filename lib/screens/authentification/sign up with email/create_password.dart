@@ -17,6 +17,7 @@ class CreatePasswordScreen extends StatelessWidget {
     final _formkey = GlobalKey<FormState>();
     //check the controller
     SignUpController controller = Get.find();
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -185,7 +186,7 @@ class CreatePasswordScreen extends StatelessWidget {
                                                     "Something went wrong.  try again later !",
                                                     icon: const Icon(
                                                       Icons.error,
-                                                      color: Colors.red, 
+                                                      color: Colors.red,
                                                       size: 30,
                                                     ),
                                                     snackPosition:

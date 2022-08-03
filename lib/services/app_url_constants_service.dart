@@ -9,4 +9,5 @@ class AppUrl {
   static const String codeVerification = 'verifycode';
   static const String login = 'login';
   static const String register = 'complet-profile';
+  static const String update = 'update-profile';
 }
