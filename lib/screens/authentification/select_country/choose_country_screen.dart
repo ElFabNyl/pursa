@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:pursa/composants/elevated_button.dart';
 import 'package:pursa/screens/authentification/select_country/select_country_ctrl.dart';
@@ -12,48 +13,42 @@ class ChooseCountryScreen extends StatefulWidget {
 }
 
 class _ChooseCountryScreenState extends State<ChooseCountryScreen> {
+  //
   CountryController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+            size: 18.0,
+          ),
+        ),
+        title: Text(
+          "Buy Bitcoin",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 22.0,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        centerTitle: true,
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(top: 80.0, left: 18.0, right: 18.0),
           child: SingleChildScrollView(
-            child: Column(
+              child: Obx(
+            () => Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Column(
-                      children: [
-                        Image.asset('assets/images/logo.png'),
-                        const SizedBox(
-                          height: 30.0,
-                        ),
-                        Text(
-                          'Welcome to PursaExchange',
-                          style: TextStyle(
-                            fontSize: 21,
-                            fontWeight: FontWeight.w800,
-                            color: Color(0xff101437),
-                          ),
-                        ),
-                        Text(
-                          'Please select your country',
-                          style: TextStyle(
-                              fontSize: 19,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.grey),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 30.0,
-                ),
                 GestureDetector(
                   onTap: () {
                     showCountryPicker(
@@ -97,63 +92,177 @@ class _ChooseCountryScreenState extends State<ChooseCountryScreen> {
                             country.displayName.split("(")[0];
                       },
                     );
+                    controller.country_is_selected.value = true;
                   },
                   child: Obx(
                     () => Container(
                       height: 50.0,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          color: Color(0xffF6F6F6),
-                          borderRadius: BorderRadius.circular(30.0)),
+                          color: Color(0xffFFFBFB),
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(5.0)),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            controller.choose_country.value,
-                            style: TextStyle(
-                                fontSize: 18.0, fontWeight: FontWeight.w500),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 25.0),
+                            child: Text(
+                              controller.choose_country.value,
+                              style: TextStyle(
+                                  fontSize: 18.0, fontWeight: FontWeight.w500),
+                            ),
                           ),
-                          Icon(
-                            Icons.arrow_drop_down,
-                            color: Colors.grey,
-                            size: 45,
+                          Padding(
+                            padding: const EdgeInsets.only(right: 15.0),
+                            child: Icon(
+                              Icons.search,
+                              color: Colors.grey,
+                              size: 30,
+                            ),
                           )
                         ],
                       ),
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 100.0, left: 15.0, right: 15.0),
-                  child: SizedBox(
-                    width: 350,
-                    child: Text(
-                      'If your country is not on the list it means our services does not extend to your area.',
-                      style: TextStyle(color: Colors.grey, fontSize: 14.0),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
                 const SizedBox(
                   height: 10.0,
                 ),
-                SizedBox(
-                  width: 110.0,
-                  child: DefaultElevatedButton(
-                      text: Text("Proceed",
-                          style: TextStyle(color: Colors.white)),
-                      showArrowBack: false,
-                      showArrowFoward: false,
-                      backgroundColor: Color(0xff218354),
-                      onPressed: () {
-                        //an  action should be done here before we move foward
+                controller.country_is_selected.value
+                    ? Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 30.0),
+                        child: Column(
+                          children: [
+                            GestureDetector(
+                              onTap: (() {
+                                //
+                                showModalBottomSheet(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return Container(
+                                        height: 400,
+                                        decoration:
+                                            BoxDecoration(color: Colors.white),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(15.0),
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  //les methodes vont venir de l'API, mais ici je fais d'abord ca comme ca
 
-                      }),
-                )
+                                                  controller.payment_method
+                                                      .value = "Methode 1";
+
+                                                      Get.back();
+                                                },
+                                                child: Text(
+                                                  "Methode 1",
+                                                  style: TextStyle(
+                                                      color: Colors.black),
+                                                ),
+                                              ),
+                                              TextButton(
+                                                onPressed: () {
+                                                  //
+                                                },
+                                                child: Text(
+                                                  "Methode 2",
+                                                  style: TextStyle(
+                                                      color: Colors.black),
+                                                ),
+                                              ),
+                                              TextButton(
+                                                onPressed: () {
+                                                  //
+                                                },
+                                                child: Text(
+                                                  "Methode 3",
+                                                  style: TextStyle(
+                                                      color: Colors.black),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    });
+
+                                controller.show_confirm_button.value = true;
+                              }),
+                              child: Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                    color: Color(0xffFFFBFB),
+                                    border: Border.all(color: Colors.grey),
+                                    borderRadius: BorderRadius.circular(5.0)),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0, vertical: 15.0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            FontAwesomeIcons.wallet,
+                                            color: Color(0xff34AA72),
+                                          ),
+                                          const SizedBox(width: 20.0),
+                                          Text(
+                                            controller.payment_method.value,
+                                            style: TextStyle(
+                                                color: Colors.grey,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w600),
+                                          )
+                                        ],
+                                      ),
+                                      Icon(
+                                        Icons.arrow_drop_down,
+                                        color: Colors.grey,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    : Text(""),
+                controller.show_confirm_button.value
+                    ? Padding(
+                        padding: const EdgeInsets.only(top: 30.0),
+                        child: SizedBox(
+                          width: 115.0,
+                          child: DefaultElevatedButton(
+                            text: Padding(
+                              padding: const EdgeInsets.only(left: 12.0),
+                              child: Text(
+                                "confirm",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w900),
+                              ),
+                            ),
+                            showArrowBack: false,
+                            showArrowFoward: false,
+                            backgroundColor: Color(0xff218354),
+                            onPressed: () {
+                              //an  action should be done here before we move foward
+                            },
+                          ),
+                        ),
+                      )
+                    : Text("")
               ],
             ),
-          ),
+          )),
         ),
       ),
     );

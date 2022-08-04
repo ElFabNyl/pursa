@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:pursa/screens/authentification/select_country/choose_country_screen.dart';
 
 class SelectCrypto extends StatelessWidget {
   const SelectCrypto({Key? key}) : super(key: key);
@@ -7,24 +9,36 @@ class SelectCrypto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+            size: 18.0,
+          ),
+        ),
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Buy crypto",
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 80.0),
           child: Column(
             children: [
-              Text(
-                "Select crypto to buy",
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20.0),
-              ),
-              const SizedBox(
-                height: 30.0,
-              ),
               GestureDetector(
                 onTap: () {
                   //
-
-                  
-                  // Get.to(() => const WhereToBy());
+                  Get.to(() => const ChooseCountryScreen());
                 },
                 child: Container(
                   height: 50.0,
@@ -39,7 +53,11 @@ class SelectCrypto extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            CircleAvatar(backgroundColor: Color(0xffFFEAAD)),
+                            Icon(
+                              FontAwesomeIcons.bitcoin,
+                              color: Color(0xffE28323),
+                              size: 40.0,
+                            ),
                             const SizedBox(
                               width: 15.0,
                             ),
@@ -53,6 +71,7 @@ class SelectCrypto extends StatelessWidget {
                         Icon(
                           Icons.arrow_forward_ios,
                           color: Colors.grey,
+                          size: 18,
                         )
                       ],
                     ),
@@ -65,10 +84,9 @@ class SelectCrypto extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   //
-                   Get.snackbar(
+                  Get.snackbar(
                     "PURSA NOTIFICATION",
-                    "Still working on this",
-                    
+                    "Service not yet available",
                   );
                 },
                 child: Container(
@@ -84,7 +102,11 @@ class SelectCrypto extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            CircleAvatar(backgroundColor: Color(0xff698A9C)),
+                            Icon(
+                              FontAwesomeIcons.ethereum,
+                              color: Color(0xff346088),
+                              size: 40.0,
+                            ),
                             const SizedBox(
                               width: 15.0,
                             ),
@@ -98,6 +120,7 @@ class SelectCrypto extends StatelessWidget {
                         Icon(
                           Icons.arrow_forward_ios,
                           color: Colors.grey,
+                          size: 18,
                         )
                       ],
                     ),
@@ -110,10 +133,9 @@ class SelectCrypto extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   //
-                   Get.snackbar(
+                  Get.snackbar(
                     "PURSA NOTIFICATION",
-                    "Still working on this",
-                    
+                    "Service not yet available",
                   );
                 },
                 child: Container(
@@ -129,9 +151,19 @@ class SelectCrypto extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            CircleAvatar(backgroundColor: Color(0xff35C0B0)),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8.0),
+                              child: SizedBox(
+                                height: 30.0,
+                                width: 30.0,
+                                child: Image.asset(
+                                  "assets/images/usdt.png",
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ),
                             const SizedBox(
-                              width: 15.0,
+                              width: 18,
                             ),
                             Text(
                               "USDT",
@@ -143,6 +175,7 @@ class SelectCrypto extends StatelessWidget {
                         Icon(
                           Icons.arrow_forward_ios,
                           color: Colors.grey,
+                          size: 18,
                         )
                       ],
                     ),

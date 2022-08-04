@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pursa/composants/home_card.dart';
 import 'package:pursa/screens/select%20scrypto/select_crypto.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -75,15 +76,17 @@ class Home extends StatelessWidget {
               HomeCard(
                 crytoImage: CircleAvatar(
                   backgroundColor: Color(0xffB6F8E0),
+                  radius: 30.0,
+                  child: Icon(
+                    FontAwesomeIcons.coins,
+                    color: Color(0xff477747),
+                  ),
                 ),
                 cardTitle: "Buy crypto",
                 carDescription: "Buy crypto currency directly into your wallet",
                 action: () {
                   //
-                  Get.snackbar(
-                    "PURSA NOTIFICATION",
-                    "this flow is not completed ",
-                  );
+                  Get.to(() => const SelectCrypto());
                 },
               ),
               const SizedBox(
@@ -92,6 +95,11 @@ class Home extends StatelessWidget {
               HomeCard(
                 crytoImage: CircleAvatar(
                   backgroundColor: Color(0xffFFEAAD),
+                  radius: 30.0,
+                  child: Icon(
+                    FontAwesomeIcons.coins,
+                    color: Color(0xffB76300),
+                  ),
                 ),
                 cardTitle: "Sell Crypto",
                 carDescription: "Buy crypto currency directly into your wallet",

@@ -9,7 +9,7 @@ class Index extends StatefulWidget {
 }
 
 class _IndexState extends State<Index> {
-  //
+  //    
   int _selectedTab = 0;
 
   final List<Widget> _tabWidgets = [
@@ -20,11 +20,25 @@ class _IndexState extends State<Index> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffF9FDFF),
         appBar: AppBar(
           title: Text(
             "Pursa Exchange",
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 22.0,
+              fontWeight: FontWeight.w900,
+            ),
           ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.notifications,
+                color: Color(0xff477747),
+              ),
+            )
+          ],
           centerTitle: true,
           backgroundColor: Colors.white,
           elevation: 0.0,
@@ -61,8 +75,8 @@ class _IndexState extends State<Index> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-                _tabWidgets[_selectedTab],
-              ],
+              _tabWidgets[_selectedTab],
+            ],
           ),
         ));
   }
