@@ -39,7 +39,7 @@ class HomeCard extends StatelessWidget {
                           fontSize: 20.0, fontWeight: FontWeight.w900),
                     ),
                     SizedBox(
-                      width: 250,
+                      width: 238,
                       child: Text(
                         carDescription,
                         style: TextStyle(

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:pursa/composants/elevated_button.dart';
 import 'package:pursa/screens/authentification/select_country/select_country_ctrl.dart';
 import 'package:country_picker/country_picker.dart';
+import 'package:pursa/screens/buy%20bitcoins/amount.dart';
 
 class ChooseCountryScreen extends StatefulWidget {
   const ChooseCountryScreen({Key? key}) : super(key: key);
@@ -147,19 +148,20 @@ class _ChooseCountryScreenState extends State<ChooseCountryScreen> {
                                         child: Padding(
                                           padding: const EdgeInsets.all(15.0),
                                           child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
                                               TextButton(
                                                 onPressed: () {
                                                   //les methodes vont venir de l'API, mais ici je fais d'abord ca comme ca
 
                                                   controller.payment_method
-                                                      .value = "Methode 1";
+                                                      .value = "Method 1 ";
 
-                                                      Get.back();
+                                                  Get.back();
                                                 },
                                                 child: Text(
-                                                  "Methode 1",
+                                                  "Method 1 ",
                                                   style: TextStyle(
                                                       color: Colors.black),
                                                 ),
@@ -169,7 +171,7 @@ class _ChooseCountryScreenState extends State<ChooseCountryScreen> {
                                                   //
                                                 },
                                                 child: Text(
-                                                  "Methode 2",
+                                                  "Method 2",
                                                   style: TextStyle(
                                                       color: Colors.black),
                                                 ),
@@ -179,7 +181,7 @@ class _ChooseCountryScreenState extends State<ChooseCountryScreen> {
                                                   //
                                                 },
                                                 child: Text(
-                                                  "Methode 3",
+                                                  "Method 3",
                                                   style: TextStyle(
                                                       color: Colors.black),
                                                 ),
@@ -239,7 +241,7 @@ class _ChooseCountryScreenState extends State<ChooseCountryScreen> {
                         padding: const EdgeInsets.only(top: 30.0),
                         child: SizedBox(
                           width: 115.0,
-                          child: DefaultElevatedButton(
+                          child: DefaultElevatedButton( 
                             text: Padding(
                               padding: const EdgeInsets.only(left: 12.0),
                               child: Text(
@@ -253,8 +255,10 @@ class _ChooseCountryScreenState extends State<ChooseCountryScreen> {
                             showArrowBack: false,
                             showArrowFoward: false,
                             backgroundColor: Color(0xff218354),
-                            onPressed: () {
+                            onPressed: () { 
                               //an  action should be done here before we move foward
+
+                              Get.to(() => const AmountScreen());
                             },
                           ),
                         ),

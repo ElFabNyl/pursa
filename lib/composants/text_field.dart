@@ -5,7 +5,7 @@ class InputFormFieldWidget extends StatelessWidget {
   final bool isEmailInput;
   final String? hintText;
   final Function(String)? onChanged;
-  final Icon? prefixIcon;
+  final Widget? prefixIcon;
   final IconButton? suffixIcon;
   final bool obscureText;
   final FocusNode? focusNode;
