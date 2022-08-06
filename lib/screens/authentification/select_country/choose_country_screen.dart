@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 import 'package:pursa/composants/elevated_button.dart';
 import 'package:pursa/screens/authentification/select_country/select_country_ctrl.dart';
 import 'package:country_picker/country_picker.dart';
@@ -156,12 +157,12 @@ class _ChooseCountryScreenState extends State<ChooseCountryScreen> {
                                                   //les methodes vont venir de l'API, mais ici je fais d'abord ca comme ca
 
                                                   controller.payment_method
-                                                      .value = "Method 1 ";
+                                                      .value = "Orange Money ";
 
                                                   Get.back();
                                                 },
                                                 child: Text(
-                                                  "Method 1 ",
+                                                  "Orange Money",
                                                   style: TextStyle(
                                                       color: Colors.black),
                                                 ),
@@ -171,7 +172,7 @@ class _ChooseCountryScreenState extends State<ChooseCountryScreen> {
                                                   //
                                                 },
                                                 child: Text(
-                                                  "Method 2",
+                                                  "MTN Mobile Money",
                                                   style: TextStyle(
                                                       color: Colors.black),
                                                 ),
@@ -181,7 +182,7 @@ class _ChooseCountryScreenState extends State<ChooseCountryScreen> {
                                                   //
                                                 },
                                                 child: Text(
-                                                  "Method 3",
+                                                  "Bank",
                                                   style: TextStyle(
                                                       color: Colors.black),
                                                 ),
@@ -235,13 +236,17 @@ class _ChooseCountryScreenState extends State<ChooseCountryScreen> {
                           ],
                         ),
                       )
-                    : Text(""),
+                    : LoadingIndicator(
+                        indicatorType: Indicator.ballScale,
+                        colors: const [Color(0xff218354)],
+                        strokeWidth: 2,
+                        pathBackgroundColor: Colors.red),
                 controller.show_confirm_button.value
                     ? Padding(
                         padding: const EdgeInsets.only(top: 30.0),
                         child: SizedBox(
                           width: 115.0,
-                          child: DefaultElevatedButton( 
+                          child: DefaultElevatedButton(
                             text: Padding(
                               padding: const EdgeInsets.only(left: 12.0),
                               child: Text(
@@ -255,7 +260,7 @@ class _ChooseCountryScreenState extends State<ChooseCountryScreen> {
                             showArrowBack: false,
                             showArrowFoward: false,
                             backgroundColor: Color(0xff218354),
-                            onPressed: () { 
+                            onPressed: () {
                               //an  action should be done here before we move foward
 
                               Get.to(() => const AmountScreen());

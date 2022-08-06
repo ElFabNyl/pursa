@@ -2,10 +2,11 @@ import 'package:get/get.dart';
 
 class CountryController extends GetxController {
   //this code  is for the the file choose_country_screen.dart 
-  var choose_country = "choose your country".obs;
+  var choose_country = "press to choose your country".obs;
   var country_is_selected = false.obs;
   var payment_method = "Payment method".obs;
   var show_confirm_button = false.obs;
+  var showLoadingIndicator = true.obs;
 
 
 
