@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pursa/screens/home/home.dart';
+import 'package:pursa/screens/profil/profil.dart';
 
 class Index extends StatefulWidget {
   const Index({Key? key}) : super(key: key);
@@ -15,12 +16,13 @@ class _IndexState extends State<Index> {
   final List<Widget> _tabWidgets = [
     Home(),
     Center(child: Text('activities')),
-    Center(child: Text('profil')),
+    ProfilScreen(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffF9FDFF),
+     
         appBar: AppBar(
           title: Text(
             "Pursa Exchange",

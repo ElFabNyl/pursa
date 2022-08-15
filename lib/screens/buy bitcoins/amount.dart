@@ -124,16 +124,14 @@ class _AmountScreenState extends State<AmountScreen> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.only(left: 8.0),
-                                    child: Expanded(
-                                      child: Text(
-                                        "Buy Bitcoin with " +
-                                            controller.payment_method.value,
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            color: Color(0xff0F5232),
-                                            fontSize: 18.0,
-                                            fontWeight: FontWeight.w700),
-                                      ),
+                                    child: Text(
+                                      "Buy Bitcoin with " +
+                                          controller.payment_method.value,
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Color(0xff0F5232),
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.w700),
                                     ),
                                   ),
                                   const SizedBox(width: 9.0),
