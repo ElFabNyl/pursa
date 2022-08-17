@@ -4,6 +4,7 @@ import 'package:lottie/lottie.dart';
 import 'package:pursa/screens/authentification/sign%20up%20with%20email/email_input.dart';
 import 'package:pursa/screens/authentification/sign%20up%20with%20email/sign_up_ctrl.dart';
 import 'package:pursa/screens/home/index.dart';
+import 'package:pursa/services/api_service_auth.dart';
 
 class SplashBitcoinScreen extends StatefulWidget {
   const SplashBitcoinScreen({Key? key}) : super(key: key);
@@ -13,6 +14,8 @@ class SplashBitcoinScreen extends StatefulWidget {
 }
 
 class _SplashBitcoinScreenState extends State<SplashBitcoinScreen> {
+  //
+ 
   @override
   void initState() {
     super.initState();
@@ -20,9 +23,11 @@ class _SplashBitcoinScreenState extends State<SplashBitcoinScreen> {
     Future.delayed(
       const Duration(seconds: 4),
       () {
-        controller.user_is_connected.value
-            ? Get.offAll(() => const EmailInputScreen())
-            : Get.offAll(() => const Index());
+        if (controller.user_phone_was_checked.value ) {
+          Get.offAll(() => const Index());
+        } else {
+          Get.offAll(() => const EmailInputScreen());
+        }
       },
     );
   }

@@ -10,6 +10,8 @@ class Index extends StatefulWidget {
 }
 
 class _IndexState extends State<Index> {
+    //for form validation
+    final _formkey = GlobalKey<FormState>();
   //    
   int _selectedTab = 0;
 
@@ -74,11 +76,14 @@ class _IndexState extends State<Index> {
             ),
           ],
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              _tabWidgets[_selectedTab],
-            ],
+        body: Form(
+          key: _formkey,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                _tabWidgets[_selectedTab],
+              ],
+            ),
           ),
         ));
   }

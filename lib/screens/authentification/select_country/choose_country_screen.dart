@@ -16,7 +16,7 @@ class ChooseCountryScreen extends StatefulWidget {
 
 class _ChooseCountryScreenState extends State<ChooseCountryScreen> {
   //
-  CountryController controller = Get.find();
+  CountryController controller = Get.put(CountryController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(

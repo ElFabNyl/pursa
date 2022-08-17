@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -17,6 +15,32 @@ class AmountScreen extends StatefulWidget {
 }
 
 class _AmountScreenState extends State<AmountScreen> {
+  // Create a text controller. Later, use it to retrieve the
+  // current value of the TextField.
+  final myController = TextEditingController();
+  //
+  // the function that will check if the amount entered is valid.
+  void _printLatestValue() {
+    print('Second text field: ${myController.text}');
+  }
+
+  //
+  @override
+  void initState() {
+    super.initState();
+
+    // Start listening to changes.
+    myController.addListener(_printLatestValue);
+  }
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is removed from the
+    // widget tree.
+    myController.dispose();
+    super.dispose();
+  }
+
   //for form validation
   final _formkey = GlobalKey<FormState>();
   CountryController controller = Get.find();
@@ -200,10 +224,18 @@ class _AmountScreenState extends State<AmountScreen> {
                                       width: 10.0,
                                     ),
                                     SizedBox(
-                                      width: 230,
+                                      width: 275,
                                       child: TextFormField(
+                                        //
+                                        controller: myController,
+                                        //
                                         onChanged: (value) {
                                           //
+                                        },
+                                        validator: (input) {
+                                          if (input == null || input.isEmpty) {
+                                            return 'The field is empty';
+                                          }
                                         },
                                         textAlign: TextAlign.right,
                                         keyboardType: TextInputType.phone,
@@ -294,10 +326,15 @@ class _AmountScreenState extends State<AmountScreen> {
                                       width: 10.0,
                                     ),
                                     SizedBox(
-                                      width: 230,
+                                      width: 275,
                                       child: TextFormField(
                                         onChanged: (value) {
                                           //
+                                        },
+                                        validator: (input) {
+                                          if (input == null || input.isEmpty) {
+                                            return 'The field is empty';
+                                          }
                                         },
                                         textAlign: TextAlign.right,
                                         keyboardType: TextInputType.phone,
@@ -371,7 +408,7 @@ class _AmountScreenState extends State<AmountScreen> {
                                     ),
                                     Padding(
                                       padding:
-                                          const EdgeInsets.only(right: 8.0),
+                                          const EdgeInsets.only(right: 15.0),
                                       child: Text(
                                         "0.002 " + "BTC",
                                         style: TextStyle(
@@ -390,35 +427,41 @@ class _AmountScreenState extends State<AmountScreen> {
                                 const SizedBox(
                                   height: 8,
                                 ),
-                                SizedBox(
-                                  width: 300.0,
-                                  child: InputFormFieldWidget(
-                                      isnumberInput: false,
-                                      isEmailInput: false,
-                                      hintText: "6XX XXX XXX",
-                                      prefixIcon: Icon(
-                                        Icons.phone,
-                                        color: Colors.grey,
-                                      )),
-                                ),
-                                const SizedBox(
-                                  height: 10.0,
-                                ),
-                                SizedBox(
-                                  width: 300.0,
-                                  child: InputFormFieldWidget(
-                                    isnumberInput: false,
-                                    isEmailInput: false,
-                                    hintText: "Enter your Bitcoin address",
-                                    prefixIcon: Icon(
-                                      FontAwesomeIcons.wallet,
-                                      color: Colors.grey,
+                                //====================================================
+                                Column(
+                                  children: [
+                                    SizedBox(
+                                      width: 300.0,
+                                      child: InputFormFieldWidget(
+                                          isnumberInput: false,
+                                          isEmailInput: false,
+                                          hintText: "6XX XXX XXX",
+                                          prefixIcon: Icon(
+                                            Icons.phone,
+                                            color: Colors.grey,
+                                          )),
                                     ),
-                                  ),
+                                    const SizedBox(
+                                      height: 10.0,
+                                    ),
+                                    SizedBox(
+                                      width: 300.0,
+                                      child: InputFormFieldWidget(
+                                        isnumberInput: false,
+                                        isEmailInput: false,
+                                        hintText: "Enter your Bitcoin address",
+                                        prefixIcon: Icon(
+                                          FontAwesomeIcons.wallet,
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                                 const SizedBox(
                                   height: 10.0,
                                 ),
+                                //====================================================
                                 SizedBox(
                                   width: 130.0,
                                   child: DefaultElevatedButton(
@@ -433,12 +476,11 @@ class _AmountScreenState extends State<AmountScreen> {
                                       showArrowFoward: true,
                                       backgroundColor: Color(0xff218354),
                                       onPressed: () {
-                                        Get.to(()=>const TransactionSummeryScreen());
-                                        //an  action should be done here before we move foward
-
-                                        // if (_formkey.currentState!.validate()) {
-
-                                        // }
+                                        if (_formkey.currentState!.validate()) {
+                                          //an  action should be done here before we move foward
+                                          Get.to(() =>
+                                              const TransactionSummeryScreen());
+                                        }
                                       }),
                                 )
                               ],

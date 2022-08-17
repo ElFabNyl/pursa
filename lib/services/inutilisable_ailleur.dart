@@ -2,18 +2,21 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pursa/screens/authentification/sign%20up%20with%20email/sign_up_ctrl.dart';
-import 'package:pursa/screens/authentification/signin/phone_otp.dart';
-import 'package:pursa/screens/home/index.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class PhoneVerification {
-  //firebase phone authentification
+import '../screens/authentification/sign up with email/sign_up_ctrl.dart';
 
-  static phoneVerification(String user_phone_number) async {
+class CheckPhone {
+
+
+    /***
+   * exceptionnellement je creais la fonction ci qui va verifier un numero de telephone mais avec differents return
+   * 
+   */
+  static phoneVerification2(String user_phone_number) async {
     FirebaseAuth _auth = FirebaseAuth.instance;
-    SharedPreferences preferences = await SharedPreferences.getInstance();
     SignUpController controller = Get.find();
+    SharedPreferences preferences = await SharedPreferences.getInstance();
     //we display the loading...
     controller.showLoadingIndicator.value = true;
     await _auth.verifyPhoneNumber(
@@ -21,7 +24,7 @@ class PhoneVerification {
         verificationCompleted: (PhoneAuthCredential credential) async {
           //we remove the loading...
           controller.showLoadingIndicator.value = false;
-
+          controller.show_Next_Bottom_Sheet1.value = true;
           //we sign the user in (or link the user) with the auto-generated credential
           await _auth.signInWithCredential(credential).then((value) {
             CupertinoAlertDialog(
@@ -31,7 +34,7 @@ class PhoneVerification {
                 CupertinoButton(
                     child: Text("Close"),
                     onPressed: () {
-                      Get.offAll(() => Index());
+                      //
                     })
               ],
             );
@@ -40,19 +43,24 @@ class PhoneVerification {
         verificationFailed: (FirebaseAuthException verificationFailed) async {
           //we remove the loading...
           controller.showLoadingIndicator.value = false;
-          Get.snackbar("PURSA NOTIFICATION",
-              'Something went wrong !Please check your phone number and try again',
-              icon: const Icon(Icons.error, color: Colors.red),
-              snackPosition: SnackPosition.TOP,
-              duration: const Duration(seconds: 8));
+          Get.snackbar(
+            "PURSA NOTIFICATION",
+            'Something went wrong !Please check your phone number and try again',
+            icon: const Icon(Icons.error, color: Colors.red),
+            snackPosition: SnackPosition.BOTTOM,
+            duration: const Duration(seconds: 8),
+          );
         },
         codeSent: (String verificationId, int? resendToken) async {
           //we remove the loading...
           controller.showLoadingIndicator.value = false;
           controller.code_verification_id.value = verificationId;
+          
           preferences.remove("user_phone_number");
           preferences.setString("user_phone_number", user_phone_number);
-          Get.to(() => const PhoneOtp());
+
+          //
+          controller.show_Next_Bottom_Sheet1.value = true;
         },
         codeAutoRetrievalTimeout: (String verificationId) async {
           //we remove the loading...
@@ -61,7 +69,7 @@ class PhoneVerification {
   }
 
   //this function takes the otp that the user has entered and verifies it
-  static checkOtp(String codeOTP) async {
+  static checkOtp2(String codeOTP) async {
     FirebaseAuth _auth = FirebaseAuth.instance;
     SignUpController controller = Get.find();
     //we display  the loading...
@@ -74,8 +82,8 @@ class PhoneVerification {
       await _auth.signInWithCredential(phoneAuthCredential);
       //we remove the loading...
       controller.showLoadingIndicator.value = false;
-
-      Get.offAll(() => Index());
+      controller.show_Next_Bottom_Sheet2.value = true;
+      
     } on FirebaseAuthException catch (e) {
       controller.showLoadingIndicator.value = false;
       Get.snackbar("PURSA NOTIFICATION", e.message.toString(),
@@ -84,6 +92,5 @@ class PhoneVerification {
           duration: const Duration(seconds: 6));
     }
   }
-
 
 }

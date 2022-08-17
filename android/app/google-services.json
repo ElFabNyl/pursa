@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "773633020730-apr7h868uhas6a5r8t0uvsg7r9npm1pp.apps.googleusercontent.com",
+          "client_id": "773633020730-kqr053m52qqg6pd5smelqs49fda43buh.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.pursa",
-            "certificate_hash": "72efcd0e1e2e15e3ab84197b0641958b8029a7c1"
+            "certificate_hash": "fd7572ead2cea7e58dee588b2fa7a92546535484"
           }
         },
         {

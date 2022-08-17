@@ -17,6 +17,12 @@ class SignUpController extends GetxController {
   var user_come_from_web = false.obs;
   var user_phone_was_checked = false.obs;
 
+  //
+  //these variables are not supposed to be true in the bigining.
+  var show_Next_Bottom_Sheet1 = true.obs;
+  var show_Next_Bottom_Sheet2 = true.obs;
+  
+
 //
   var code_verification_id = "".obs;
 

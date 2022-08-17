@@ -23,7 +23,8 @@ class _SignInWithPasswordState extends State<SignInWithPassword> {
     SignUpController controller = Get.find();
 
     return Scaffold(
-      body: SafeArea(
+        body: Obx(
+      () => SafeArea(
         child: controller.showLoadingIndicator.value
             ? Center(
                 child: LoadingIndicator(
@@ -157,6 +158,6 @@ class _SignInWithPasswordState extends State<SignInWithPassword> {
                 ),
               ),
       ),
-    );
+    ));
   }
 }

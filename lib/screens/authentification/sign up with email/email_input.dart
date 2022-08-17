@@ -8,7 +8,6 @@ import 'package:pursa/screens/authentification/inbox_check_message/inbox_check_m
 import 'package:pursa/screens/authentification/sign%20up%20with%20email/email_exist_page.dart';
 import 'package:pursa/screens/authentification/sign%20up%20with%20email/sign_up_ctrl.dart';
 import 'package:pursa/services/api_service_auth.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class EmailInputScreen extends StatefulWidget {
   const EmailInputScreen({Key? key}) : super(key: key);
