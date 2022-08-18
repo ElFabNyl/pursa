@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pursa/composants/elevated_button.dart';
+import 'package:pursa/screens/buy%20bitcoins/awaiting_payment.dart';
 import 'package:pursa/screens/buy%20bitcoins/transaction_status.dart';
 
 class TransactionSummeryScreen extends StatelessWidget {
@@ -177,7 +178,7 @@ class TransactionSummeryScreen extends StatelessWidget {
                                 backgroundColor: Color(0xff218354),
                                 onPressed: () {
                                   //
-                                  Get.to(()=>const TransactionStatusScreen() );
+                                  Get.to(()=>const AwaitingPaymentScreen() );
                                 }),
                           )
                         ],

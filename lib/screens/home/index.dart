@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pursa/screens/activities/activities.dart';
 import 'package:pursa/screens/home/home.dart';
 import 'package:pursa/screens/profil/profil.dart';
 
@@ -17,7 +18,7 @@ class _IndexState extends State<Index> {
 
   final List<Widget> _tabWidgets = [
     Home(),
-    Center(child: Text('activities')),
+    ActivitiesScreen(),
     ProfilScreen(),
   ];
   @override

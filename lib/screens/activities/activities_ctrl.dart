@@ -6,22 +6,22 @@ class ActivitiesController extends GetxController {
       "image": 'assets/images/btc.png',
       "title": 'Bought BTC',
       "amount": "0.0674",
-      "dollard_equivalent": "491\$",
-      "date": "8 Apr 2022"
+      "dollard_equivalent": "491",
+      "date": "9 Apr 2022"
+    },
+    {
+      "image": 'assets/images/btc.png',
+      "title": 'Sell BTC',
+      "amount": "1.0674",
+      "dollard_equivalent": "491",
+      "date": "10 june 2022"
     },
     {
       "image": 'assets/images/btc.png',
       "title": 'Bought BTC',
       "amount": "0.0674",
-      "dollard_equivalent": "491\$",
-      "date": "8 Apr 2022"
-    },
-    {
-      "image": 'assets/images/btc.png',
-      "title": 'Bought BTC',
-      "amount": "0.0674",
-      "dollard_equivalent": "491\$",
-      "date": "8 Apr 2022"
+      "dollard_equivalent": "491",
+      "date": "12 december 2022"
     },
   ];
 

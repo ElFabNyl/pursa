@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
+import 'package:pursa/screens/buy%20bitcoins/amount.dart';
 
 class TransactionStatusScreen extends StatelessWidget {
   const TransactionStatusScreen({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class TransactionStatusScreen extends StatelessWidget {
         elevation: 0.0,
         leading: IconButton(
           onPressed: () {
-            Get.back();
+            Get.off(()=>const AmountScreen());
           },
           icon: Icon(
             Icons.arrow_back_ios,
@@ -318,7 +319,8 @@ class TransactionStatusScreen extends StatelessWidget {
                         )
                       ],
                     ),
-                  ))
+                  )),
+
             ],
           ),
         ),

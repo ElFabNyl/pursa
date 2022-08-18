@@ -12,8 +12,7 @@ import 'package:pursa/screens/home/index.dart';
 import 'package:pursa/screens/select%20scrypto/select_crypto.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pursa/services/inutilisable_ailleur.dart';
-import 'package:pursa/services/phone_verification.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 
 import '../../composants/elevated_button.dart';
 
