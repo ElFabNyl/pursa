@@ -41,7 +41,6 @@ class MyApp extends StatelessWidget {
       initialBinding: InitializeDepedencies(),
       debugShowCheckedModeBanner: false,
       home: SplashBitcoinScreen(),
-      // home: Index(),
     );
   }
 }

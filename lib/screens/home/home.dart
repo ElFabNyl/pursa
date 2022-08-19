@@ -3,15 +3,16 @@ import 'package:country_pickers/country.dart';
 import 'package:country_pickers/country_pickers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pursa/composants/home_card.dart';
 import 'package:pursa/composants/text_field.dart';
 import 'package:pursa/screens/authentification/sign%20up%20with%20email/sign_up_ctrl.dart';
-import 'package:pursa/screens/home/index.dart';
 import 'package:pursa/screens/select%20scrypto/select_crypto.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pursa/services/inutilisable_ailleur.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 import '../../composants/elevated_button.dart';
@@ -41,6 +42,7 @@ class _HomeState extends State<Home> {
         );
     //
     SignUpController controller = Get.find();
+    
     //
     String codeOtp = "";
 
@@ -448,9 +450,12 @@ class _HomeState extends State<Home> {
                                                                                                                                   backgroundColor: Color(0xff218354),
                                                                                                                                   onPressed: () async {
                                                                                                                                     //i should call the update endpoint here. passing to it the email
-                                                                                                                                    //and the phone number of this user                                                                                                                           //
+                                                                                                                                    //and the phone number of this user   
+                                                                                                                                    SharedPreferences preferences = await SharedPreferences.getInstance(); 
+                                                                                                                                   preferences.setString("user_phone_number", controller.user_phone_number.value);
+                                                                                                                                   
                                                                                                                                     print(" ok tu peux store le numero en memoire");
-
+                                                                                                                                    Get.offAll(()=>const SelectCrypto());
                                                                                                                                     // Get.offAll(() => const Index());
                                                                                                                                     // Get.snackbar(
                                                                                                                                     //   "PURSA NOTIFICATION",
@@ -462,7 +467,7 @@ class _HomeState extends State<Home> {
                                                                                                                                   }),
                                                                                                                             )
                                                                                                                           ],
-                                                                                                                        )
+                                                                                                                        ) 
                                                                                                                       ],
                                                                                                                     ),
                                                                                                             ),

@@ -263,6 +263,7 @@ class EmailOtpScreen extends StatelessWidget {
                             backgroundColor: Color(0xff218354),
                             onPressed: () async {
                               //
+                              
                               controller.pin_email.value = controller.getPin();
 
                               if (controller.pin_email.value.length < 5) {
@@ -277,7 +278,8 @@ class EmailOtpScreen extends StatelessWidget {
                                   snackPosition: SnackPosition.TOP,
                                   duration: const Duration(seconds: 6),
                                 );
-                              } else if (controller.pin_email.value.length > 5) {
+                              } else if (controller.pin_email.value.length >= 5) {
+                                
                                 controller.showLoadingIndicator.value = true;
 
                                 var result_query =
@@ -303,7 +305,7 @@ class EmailOtpScreen extends StatelessWidget {
                                       color: Colors.red,
                                       size: 30,
                                     ),
-                                    snackPosition: SnackPosition.TOP,
+                                    snackPosition: SnackPosition.BOTTOM,
                                     duration: const Duration(seconds: 6),
                                   );
                                   controller.showLoadingIndicator.value = false;

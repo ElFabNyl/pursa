@@ -130,7 +130,9 @@ class AuthentificationApiService {
     //  i contact the API for distance database storage
     final http.Response response =
         await http.post(url, headers: AppUrl.headers, body: body);
-
+    preferences.remove("user_phone_number");
+    preferences.setString(
+        "user_phone_number",phone);
     return jsonDecode(response.body);
   }
 
