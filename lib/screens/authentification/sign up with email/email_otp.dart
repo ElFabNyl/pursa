@@ -18,10 +18,10 @@ class EmailOtpScreen extends StatelessWidget {
       body: Obx(
         () => SingleChildScrollView(
           child: controller.showLoadingIndicator.value
-              ? Center(
+              ? const Center(
                   child: LoadingIndicator(
                       indicatorType: Indicator.ballScale,
-                      colors: const [Color(0xff218354)],
+                      colors:  [Color(0xff218354)],
                       strokeWidth: 0.5,
                       pathBackgroundColor: Colors.red),
                 )
@@ -36,10 +36,10 @@ class EmailOtpScreen extends StatelessWidget {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
+                        children: const [
+                           SizedBox(
                             width: 300,
-                            child: Text(
+                            child:   Text(
                               "Enter the verification code sent to you by email",
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -67,8 +67,8 @@ class EmailOtpScreen extends StatelessWidget {
                                     controller.pin1.value = value;
                                   },
                                   style: Theme.of(context).textTheme.headline6,
-                                  decoration: InputDecoration(
-                                    enabledBorder: const OutlineInputBorder(
+                                  decoration: const InputDecoration(
+                                    enabledBorder:  OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Colors.grey,
                                       ),
@@ -76,7 +76,7 @@ class EmailOtpScreen extends StatelessWidget {
                                         Radius.circular(9),
                                       ),
                                     ),
-                                    focusedBorder: const OutlineInputBorder(
+                                    focusedBorder:  OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Colors.grey,
                                         width: 0.5,
@@ -106,8 +106,8 @@ class EmailOtpScreen extends StatelessWidget {
                                     controller.pin2.value = value;
                                   },
                                   style: Theme.of(context).textTheme.headline6,
-                                  decoration: InputDecoration(
-                                    enabledBorder: const OutlineInputBorder(
+                                  decoration: const InputDecoration(
+                                    enabledBorder:  OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Colors.grey,
                                       ),
@@ -115,7 +115,7 @@ class EmailOtpScreen extends StatelessWidget {
                                         Radius.circular(9),
                                       ),
                                     ),
-                                    focusedBorder: const OutlineInputBorder(
+                                    focusedBorder:  OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Colors.grey,
                                         width: 0.5,
@@ -145,8 +145,8 @@ class EmailOtpScreen extends StatelessWidget {
                                     controller.pin3.value = value;
                                   },
                                   style: Theme.of(context).textTheme.headline6,
-                                  decoration: InputDecoration(
-                                    enabledBorder: const OutlineInputBorder(
+                                  decoration: const InputDecoration(
+                                    enabledBorder:  OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Colors.grey,
                                       ),
@@ -154,7 +154,7 @@ class EmailOtpScreen extends StatelessWidget {
                                         Radius.circular(9),
                                       ),
                                     ),
-                                    focusedBorder: const OutlineInputBorder(
+                                    focusedBorder:  OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Colors.grey,
                                         width: 0.5,
@@ -184,8 +184,8 @@ class EmailOtpScreen extends StatelessWidget {
                                     controller.pin4.value = value;
                                   },
                                   style: Theme.of(context).textTheme.headline6,
-                                  decoration: InputDecoration(
-                                    enabledBorder: const OutlineInputBorder(
+                                  decoration: const InputDecoration(
+                                    enabledBorder:  OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Colors.grey,
                                       ),
@@ -193,7 +193,7 @@ class EmailOtpScreen extends StatelessWidget {
                                         Radius.circular(9),
                                       ),
                                     ),
-                                    focusedBorder: const OutlineInputBorder(
+                                    focusedBorder:  OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Colors.grey,
                                         width: 0.5,
@@ -219,16 +219,16 @@ class EmailOtpScreen extends StatelessWidget {
                                     controller.pin5.value = value;
                                   },
                                   style: Theme.of(context).textTheme.headline6,
-                                  decoration: InputDecoration(
-                                    enabledBorder: const OutlineInputBorder(
+                                  decoration: const InputDecoration(
+                                    enabledBorder:  OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Colors.grey,
                                       ),
-                                      borderRadius: BorderRadius.all(
+                                      borderRadius:  BorderRadius.all(
                                         Radius.circular(9),
                                       ),
                                     ),
-                                    focusedBorder: const OutlineInputBorder(
+                                    focusedBorder:  OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Colors.grey,
                                         width: 0.5,
@@ -254,13 +254,13 @@ class EmailOtpScreen extends StatelessWidget {
                       SizedBox(
                         width: 130.0,
                         child: DefaultElevatedButton(
-                            text: Text(
+                            text: const Text(
                               "Proceed",
                             ),
                             showArrowBack: false,
                             showArrowFoward: true,
                             elevation: 3.0,
-                            backgroundColor: Color(0xff218354),
+                            backgroundColor: const Color(0xff218354),
                             onPressed: () async {
                               //
                               

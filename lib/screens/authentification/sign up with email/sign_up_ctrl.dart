@@ -19,8 +19,8 @@ class SignUpController extends GetxController {
 
   //
   //these variables are not supposed to be true in the bigining.
-  var show_Next_Bottom_Sheet1 = true.obs;
-  var show_Next_Bottom_Sheet2 = true.obs;
+  var show_Next_Bottom_Sheet1 = false.obs;
+  var show_Next_Bottom_Sheet2 = false.obs;
   
 
 //

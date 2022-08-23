@@ -14,7 +14,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pursa/services/inutilisable_ailleur.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 import '../../composants/elevated_button.dart';
 
 class Home extends StatefulWidget {
@@ -27,13 +26,12 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-   
     //
     Widget _buildDropdownItem(Country country) => Container(
           child: Row(
             children: <Widget>[
               CountryPickerUtils.getDefaultFlagImage(country),
-              SizedBox(
+              const SizedBox(
                 width: 8.0,
               ),
               Text("+${country.phoneCode}(${country.isoCode})"),
@@ -42,7 +40,7 @@ class _HomeState extends State<Home> {
         );
     //
     SignUpController controller = Get.find();
-    
+
     //
     String codeOtp = "";
 
@@ -54,7 +52,7 @@ class _HomeState extends State<Home> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0xffEAF5F8),
+                      color: const Color(0xffEAF5F8),
                       borderRadius: BorderRadius.circular(10.0)),
                 ),
                 Padding(
@@ -62,7 +60,7 @@ class _HomeState extends State<Home> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      SizedBox(
+                     const  SizedBox(
                         height: 90,
                         width: 90,
                         child: Text(
@@ -98,8 +96,8 @@ class _HomeState extends State<Home> {
             enableInfiniteScroll: true,
             reverse: false,
             autoPlay: true,
-            autoPlayInterval: Duration(seconds: 3),
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            autoPlayInterval:const  Duration(seconds: 3),
+            autoPlayAnimationDuration: const Duration(milliseconds: 800),
             autoPlayCurve: Curves.fastOutSlowIn,
             enlargeCenterPage: true,
             scrollDirection: Axis.horizontal,
@@ -110,7 +108,7 @@ class _HomeState extends State<Home> {
           child: Column(
             children: [
               HomeCard(
-                crytoImage: CircleAvatar(
+                crytoImage: const CircleAvatar(
                   backgroundColor: Color(0xffB6F8E0),
                   radius: 30.0,
                   child: Icon(
@@ -121,7 +119,6 @@ class _HomeState extends State<Home> {
                 cardTitle: "Buy crypto",
                 carDescription: "Buy crypto currency directly into your wallet",
                 action: () {
-                  
                   //===================================================
                   controller.user_phone_was_checked.value
                       ? Get.to(() => const SelectCrypto())
@@ -131,17 +128,17 @@ class _HomeState extends State<Home> {
                             return Obx(
                               () => Container(
                                 height: 600,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Colors.white,
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
                                   child: controller.showLoadingIndicator.value
-                                      ? Center(
+                                      ?const  Center(
                                           child: LoadingIndicator(
                                               indicatorType:
                                                   Indicator.ballScale,
-                                              colors: const [Color(0xff218354)],
+                                              colors:  [Color(0xff218354)],
                                               strokeWidth: 2,
                                               pathBackgroundColor: Colors.red),
                                         )
@@ -157,7 +154,7 @@ class _HomeState extends State<Home> {
                                                   children: [
                                                     const SizedBox(
                                                         height: 15.0),
-                                                    Text(
+                                                    const Text(
                                                       "Phone verification",
                                                       textAlign:
                                                           TextAlign.center,
@@ -168,7 +165,7 @@ class _HomeState extends State<Home> {
                                                     ),
                                                     const SizedBox(
                                                         height: 10.0),
-                                                    SizedBox(
+                                                   const SizedBox(
                                                       width: 270,
                                                       child: Text(
                                                         "you need to provide a valid phone number to make a transaction",
@@ -213,10 +210,8 @@ class _HomeState extends State<Home> {
                                                               controller
                                                                       .user_code_tel
                                                                       .value =
-                                                                  "+" +
-                                                                      country
-                                                                          .phoneCode
-                                                                          .toString();
+                                                                  "+${country
+                                                                          .phoneCode}";
                                                               // print(controller
                                                               //     .user_code_tel
                                                               //     .value);
@@ -254,7 +249,7 @@ class _HomeState extends State<Home> {
                                                 SizedBox(
                                                   width: 130,
                                                   child: DefaultElevatedButton(
-                                                      text: Text(
+                                                      text: const Text(
                                                         "Proceed",
                                                         style: TextStyle(
                                                             color: Colors.white,
@@ -266,7 +261,7 @@ class _HomeState extends State<Home> {
                                                       showArrowBack: false,
                                                       showArrowFoward: true,
                                                       backgroundColor:
-                                                          Color(0xff218354),
+                                                         const  Color(0xff218354),
                                                       onPressed: () async {
                                                         //an  action should be done here before we move foward
                                                         controller.user_code_tel
@@ -274,7 +269,7 @@ class _HomeState extends State<Home> {
                                                             ? controller
                                                                 .user_code_tel
                                                                 .value = "+237"
-                                                            : debugPrint("");
+                                                            : null;
                                                         await CheckPhone
                                                             .phoneVerification2(
                                                                 controller
@@ -283,9 +278,9 @@ class _HomeState extends State<Home> {
                                                                     controller
                                                                         .user_phone_number
                                                                         .value);
-                                                        print(controller
-                                                            .show_Next_Bottom_Sheet1
-                                                            .value);
+                                                            
+                                                           
+                                                      
                                                         controller
                                                                 .show_Next_Bottom_Sheet1
                                                                 .value
@@ -301,7 +296,7 @@ class _HomeState extends State<Home> {
                                                                       height:
                                                                           600,
                                                                       decoration:
-                                                                          BoxDecoration(
+                                                                         const  BoxDecoration(
                                                                         color: Colors
                                                                             .white,
                                                                       ),
@@ -310,7 +305,7 @@ class _HomeState extends State<Home> {
                                                                         padding:
                                                                             const EdgeInsets.all(10.0),
                                                                         child: controller.showLoadingIndicator.value
-                                                                            ? Center(
+                                                                            ? const Center(
                                                                                 child: LoadingIndicator(indicatorType: Indicator.ballScale, colors: const [Color(0xff218354)], strokeWidth: 2, pathBackgroundColor: Colors.red),
                                                                               )
                                                                             : Column(
@@ -322,13 +317,13 @@ class _HomeState extends State<Home> {
                                                                                       Column(
                                                                                         children: [
                                                                                           const SizedBox(height: 15.0),
-                                                                                          Text(
+                                                                                         const Text(
                                                                                             "Phone verification",
                                                                                             textAlign: TextAlign.center,
                                                                                             style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w800),
                                                                                           ),
                                                                                           const SizedBox(height: 10.0),
-                                                                                          SizedBox(
+                                                                                       const    SizedBox(
                                                                                             width: 270,
                                                                                             child: Text(
                                                                                               "Enter the OTP code sent to you by SMS",
@@ -370,13 +365,13 @@ class _HomeState extends State<Home> {
                                                                                       SizedBox(
                                                                                         width: 130,
                                                                                         child: DefaultElevatedButton(
-                                                                                            text: Text(
+                                                                                            text: const Text(
                                                                                               "Proceed",
                                                                                               style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w700),
                                                                                             ),
                                                                                             showArrowBack: false,
                                                                                             showArrowFoward: true,
-                                                                                            backgroundColor: Color(0xff218354),
+                                                                                            backgroundColor:const  Color(0xff218354),
                                                                                             onPressed: () async {
                                                                                               //an  action should be done here before we move foward
                                                                                               CheckPhone.checkOtp2(codeOtp);
@@ -388,14 +383,14 @@ class _HomeState extends State<Home> {
                                                                                                         return Obx(
                                                                                                           () => Container(
                                                                                                             height: 600,
-                                                                                                            decoration: BoxDecoration(
+                                                                                                            decoration:const  BoxDecoration(
                                                                                                               color: Colors.white,
                                                                                                             ),
                                                                                                             child: Padding(
                                                                                                               padding: const EdgeInsets.all(10.0),
                                                                                                               child: controller.showLoadingIndicator.value
-                                                                                                                  ? Center(
-                                                                                                                      child: LoadingIndicator(indicatorType: Indicator.ballScale, colors: const [Color(0xff218354)], strokeWidth: 2, pathBackgroundColor: Colors.red),
+                                                                                                                  ? const Center(
+                                                                                                                      child: LoadingIndicator(indicatorType: Indicator.ballScale, colors:  [Color(0xff218354)], strokeWidth: 2, pathBackgroundColor: Colors.red),
                                                                                                                     )
                                                                                                                   : Column(
                                                                                                                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -406,13 +401,13 @@ class _HomeState extends State<Home> {
                                                                                                                             Column(
                                                                                                                               children: [
                                                                                                                                 const SizedBox(height: 15.0),
-                                                                                                                                Text(
+                                                                                                                             const   Text(
                                                                                                                                   "Phone verification",
                                                                                                                                   textAlign: TextAlign.center,
                                                                                                                                   style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w800),
                                                                                                                                 ),
                                                                                                                                 const SizedBox(height: 10.0),
-                                                                                                                                SizedBox(
+                                                                                                                              const  SizedBox(
                                                                                                                                   width: 280,
                                                                                                                                   child: Text(
                                                                                                                                     "Phone  number verified you can now make your transactions with ease",
@@ -441,21 +436,21 @@ class _HomeState extends State<Home> {
                                                                                                                             SizedBox(
                                                                                                                               width: 130,
                                                                                                                               child: DefaultElevatedButton(
-                                                                                                                                  text: Text(
+                                                                                                                                  text: const Text(
                                                                                                                                     "Done",
                                                                                                                                     style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w700),
                                                                                                                                   ),
                                                                                                                                   showArrowBack: false,
                                                                                                                                   showArrowFoward: false,
-                                                                                                                                  backgroundColor: Color(0xff218354),
+                                                                                                                                  backgroundColor: const Color(0xff218354),
                                                                                                                                   onPressed: () async {
                                                                                                                                     //i should call the update endpoint here. passing to it the email
-                                                                                                                                    //and the phone number of this user   
-                                                                                                                                    SharedPreferences preferences = await SharedPreferences.getInstance(); 
-                                                                                                                                   preferences.setString("user_phone_number", controller.user_phone_number.value);
-                                                                                                                                   
-                                                                                                                                    print(" ok tu peux store le numero en memoire");
-                                                                                                                                    Get.offAll(()=>const SelectCrypto());
+                                                                                                                                    //and the phone number of this user
+                                                                                                                                    SharedPreferences preferences = await SharedPreferences.getInstance();
+                                                                                                                                    preferences.setString("user_phone_number", controller.user_phone_number.value);
+
+                                                                                                                                    debugPrint(" ok tu peux store le numero en memoire");
+                                                                                                                                    Get.offAll(() => const SelectCrypto());
                                                                                                                                     // Get.offAll(() => const Index());
                                                                                                                                     // Get.snackbar(
                                                                                                                                     //   "PURSA NOTIFICATION",
@@ -467,7 +462,7 @@ class _HomeState extends State<Home> {
                                                                                                                                   }),
                                                                                                                             )
                                                                                                                           ],
-                                                                                                                        ) 
+                                                                                                                        )
                                                                                                                       ],
                                                                                                                     ),
                                                                                                             ),
@@ -502,7 +497,7 @@ class _HomeState extends State<Home> {
                 height: 15.0,
               ),
               HomeCard(
-                crytoImage: CircleAvatar(
+                crytoImage: const CircleAvatar(
                   backgroundColor: Color(0xffFFEAAD),
                   radius: 30.0,
                   child: Icon(

@@ -22,10 +22,10 @@ class CreatePasswordScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: controller.showLoadingIndicator.value
-            ? Center(
+            ? const Center(
                 child: LoadingIndicator(
                     indicatorType: Indicator.ballScale,
-                    colors: const [Color(0xff218354)],
+                    colors:  [Color(0xff218354)],
                     strokeWidth: 2,
                     pathBackgroundColor: Colors.red),
               )
@@ -50,7 +50,7 @@ class CreatePasswordScreen extends StatelessWidget {
                             Obx(
                               () => Text(
                                 controller.user_email.value,
-                                style: TextStyle(
+                                style: const  TextStyle(
                                     fontWeight: FontWeight.w800,
                                     fontSize: 22.0),
                               ),
@@ -61,7 +61,7 @@ class CreatePasswordScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(left: 15.0, top: 30.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
+                            children:const  [
                               Text(
                                 "Create your unique password",
                                 style: TextStyle(fontSize: 18),
@@ -97,7 +97,7 @@ class CreatePasswordScreen extends StatelessWidget {
                                           controller.viewPassword.value =
                                               !controller.viewPassword.value;
                                         },
-                                        icon: Icon(
+                                        icon: const Icon(
                                           Icons.remove_red_eye,
                                           color: Colors.grey,
                                         )),
@@ -110,7 +110,7 @@ class CreatePasswordScreen extends StatelessWidget {
                                   Obx(() => Checkbox(
                                       value: controller.isSelected.value,
                                       fillColor: MaterialStateProperty.all(
-                                          Color(0xff218354)),
+                                         const  Color(0xff218354)),
                                       onChanged: (checked) {
                                         //
                                         controller.isSelected.value = checked!;
@@ -120,7 +120,7 @@ class CreatePasswordScreen extends StatelessWidget {
                                     onPressed: () {
                                       // direct to the terms and conditions of pursa
                                     },
-                                    child: SizedBox(
+                                    child: const SizedBox(
                                       width: 250,
                                       child: Text(
                                         "I have read and agreed to the tearms and conditions of using pursa",
@@ -142,7 +142,7 @@ class CreatePasswordScreen extends StatelessWidget {
                                     ? SizedBox(
                                         width: 130.0,
                                         child: DefaultElevatedButton(
-                                            text: Text("Done",
+                                            text: const Text("Done",
                                                 style: TextStyle(
                                                     color: Colors.white,
                                                     fontSize: 17,
@@ -150,7 +150,7 @@ class CreatePasswordScreen extends StatelessWidget {
                                                         FontWeight.w800)),
                                             showArrowBack: false,
                                             showArrowFoward: true,
-                                            backgroundColor: Color(0xff218354),
+                                            backgroundColor:const Color(0xff218354),
                                             onPressed: () async {
                                               //an  action should be done here (register user) before we move foward
                                               if (_formkey.currentState!
@@ -198,7 +198,7 @@ class CreatePasswordScreen extends StatelessWidget {
                                               }
                                             }),
                                       )
-                                    : Text(""),
+                                    : const Text(""),
                               ),
                               const SizedBox(
                                 height: 15.0,
